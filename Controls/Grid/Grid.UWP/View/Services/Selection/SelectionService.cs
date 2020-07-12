@@ -540,11 +540,18 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private void SelectRangeCells(int row, int column = -1)
         {
-            var cells = this.Owner.Model.CellsController.GetCellsForRow(row);
-            GridCellModel model = column != -1 ? cells.FirstOrDefault(a => a.Column.ItemInfo.Slot == column) : cells.FirstOrDefault();
-            if (model != null)
+            var item =  this.Owner.GetDataView().Items[row];
+            switch (this.Owner.SelectionUnit)
             {
-                this.Select(model, false);
+                case DataGridSelectionUnit.Row:
+                    this.SelectItem(item, true, false);
+                    break;
+                case DataGridSelectionUnit.Cell:
+                    var cellInfo = new DataGridCellInfo(item, this.Owner.Model.VisibleColumns.ElementAt(column));
+                    this.SelectCellInfo(cellInfo, true, false);
+                    break;
+                default:
+                    throw new ArgumentException("Unknown selection unit type", "this.Owner.SelectionUnit");
             }
         }
 
