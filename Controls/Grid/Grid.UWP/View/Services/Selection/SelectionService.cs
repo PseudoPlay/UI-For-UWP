@@ -540,7 +540,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private void SelectRangeCells(int row, int column = -1)
         {
-            var item =  this.Owner.GetDataView().Items[row];
+            var item = this.Owner.GetDataView().Items[row];
             switch (this.Owner.SelectionUnit)
             {
                 case DataGridSelectionUnit.Row:
