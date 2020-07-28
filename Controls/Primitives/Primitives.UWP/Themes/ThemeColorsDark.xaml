@@ -3,17 +3,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--Colors-->
-    <Color x:Key="TelerikWatermarkForegroundColor">#FF666666</Color>
+    <Color x:Key="TelerikWatermarkForegroundColor">#99666666</Color>
     <Color x:Key="TelerikWatermarkDisabledForegroundColor">#1FFFFFFF</Color>
-    <Color x:Key="TelerikForegroundColor">#FFFFFFFF</Color>
-    <Color x:Key="TelerikSecondaryForegroundColor">#99FFFFFF</Color>
-    <Color x:Key="TelerikSelectedColor">#FF006AC1</Color>
+    <Color x:Key="TelerikForegroundColor">#EEEEEFEEE</Color>
+    <Color x:Key="TelerikSecondaryForegroundColor">#99AAAAFF</Color>
+    <Color x:Key="TelerikSelectedColor">#911F21</Color>
     <Color x:Key="TelerikHighlightedColor">#FF2086D9</Color>
-    <Color x:Key="TelerikPressedBackgroundColor">#FFFFFFFF</Color>
-    <Color x:Key="TelerikPressedForegroundColor">#FF006AC1</Color>
+    <Color x:Key="TelerikPressedBackgroundColor">#DDFFFFFF</Color>
+    <Color x:Key="TelerikPressedForegroundColor">#8A2BE2</Color>
     <Color x:Key="TelerikDisabledColor">#66FFFFFF</Color>
-    <Color x:Key="TelerikBlackColor">#FF000000</Color>
-    <Color x:Key="TelerikWhiteColor">#FFFFFFFF</Color>
+    <Color x:Key="TelerikBlackColor">#EE000000</Color>
+    <Color x:Key="TelerikWhiteColor">#DDDDDDDD</Color>
 
     <!--SelectorItem Rest State-->
     <SolidColorBrush x:Key="TelerikLoopingItemBackgroundBrush" Color="#B2B6B6B6"/>
