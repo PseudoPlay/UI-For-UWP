@@ -17,6 +17,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private SelectedItemCollection selectedItems;
 
+        private IDataView dataView;
+
         internal SelectionService(RadDataGrid owner)
             : base(owner)
         {
@@ -199,6 +201,18 @@ namespace Telerik.UI.Xaml.Controls.Grid
                         break;
                 }
             }
+        }
+
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+            this.dataView = this.Owner.GetDataView();
+        }
+
+        protected override void OnDetached(RadDataGrid previousOwner)
+        {
+            this.dataView = null;
+            base.OnDetached(previousOwner);
         }
 
         private bool CanSelectItem(object item)
@@ -400,7 +414,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var newSelectedItems = this.selectedCellsSet.ToArray();
 
             // TODO: schedule update if data is not ready.
-            foreach (var item in this.Owner.GetDataView())
+            foreach (var item in this.dataView)
             {
                 if (item is IDataGroup)
                 {
@@ -498,7 +512,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var newSelectedItems = this.selectedRowsSet.ToArray();
 
             // TODO: schedule update if data is not ready.
-            foreach (var item in this.Owner.GetDataView())
+            foreach (var item in this.dataView)
             {
                 if (item is IDataGroup)
                 {
@@ -540,11 +554,19 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private void SelectRangeCells(int row, int column = -1)
         {
-            var cells = this.Owner.Model.CellsController.GetCellsForRow(row);
-            GridCellModel model = column != -1 ? cells.FirstOrDefault(a => a.Column.ItemInfo.Slot == column) : cells.FirstOrDefault();
-            if (model != null)
+            var owner = this.Owner;
+            var item = this.dataView.Items[row];
+            switch (owner.SelectionUnit)
             {
-                this.Select(model, false);
+                case DataGridSelectionUnit.Row:
+                    this.SelectItem(item, true, false);
+                    break;
+                case DataGridSelectionUnit.Cell:
+                    var cellInfo = new DataGridCellInfo(item, owner.Model.VisibleColumns.ElementAt(column));
+                    this.SelectCellInfo(cellInfo, true, false);
+                    break;
+                default:
+                    throw new ArgumentException("Unknown selection unit type", "owner.SelectionUnit");
             }
         }
 
