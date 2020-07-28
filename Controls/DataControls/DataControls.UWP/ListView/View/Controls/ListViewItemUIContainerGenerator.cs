@@ -82,7 +82,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.View.Controls
 
         public void ClearContainerForItem(GeneratedItemModel element)
         {
-            if (element.ContainerType == listViewItemType)
+            if ((Type)element.ContainerType == listViewItemType)
             {
                 var item = element.Container as RadListViewItem;
 
@@ -96,7 +96,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.View.Controls
                 this.owner.ClearContainerForItem(item);
             }
 
-            if (element.ContainerType == listViewGroupHeaderType)
+            if ((Type)element.ContainerType == listViewGroupHeaderType)
             {
                 var item = element.Container as ListViewGroupHeader;
                 item.ClearValue(ListViewGroupHeader.WidthProperty);

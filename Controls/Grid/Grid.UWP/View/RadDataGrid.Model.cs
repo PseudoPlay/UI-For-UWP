@@ -337,7 +337,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
                 var element = this.Model.RowPool.GetDisplayedElement(line + 1);
 
-                if (element != null && line != visibleLines - 1 && this.HasHorizontalGridLines && element.ContainerType != typeof(DataGridGroupHeader))
+                if (element != null && line != visibleLines - 1 && this.HasHorizontalGridLines && (Type)element.ContainerType != typeof(DataGridGroupHeader))
                 {
                     height += this.GridLinesThickness;
                 }

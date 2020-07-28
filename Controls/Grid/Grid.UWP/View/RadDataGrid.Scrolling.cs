@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
     public partial class RadDataGrid
     {
         private RadPoint lastScrollOffset;
-        private ScrollViewer scrollViewer;
+        public ScrollViewer scrollViewer;
 
         double IGridView.PhysicalVerticalOffset
         {

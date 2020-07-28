@@ -32,7 +32,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             // adjust the height of the row behind the edit row taking into account the grid lines(if any and if there is no group header before the item).
             var gridlineLength = 0d;
             var displayedElement = grid.Model.RowPool.GetDisplayedElement(editorLine - 1);
-            bool shouldUpdateRowHeight = editorLine == 0 || displayedElement == null ? false : displayedElement.ContainerType != typeof(DataGridGroupHeader);
+            bool shouldUpdateRowHeight = editorLine == 0 || displayedElement == null ? false : (Type)displayedElement.ContainerType != typeof(DataGridGroupHeader);
 
             if (editorLine > 0 && grid.HasHorizontalGridLines && shouldUpdateRowHeight)
             {

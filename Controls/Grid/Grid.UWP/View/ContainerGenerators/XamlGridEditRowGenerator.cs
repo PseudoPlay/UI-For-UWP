@@ -68,7 +68,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             DataGridEditRow child = null;
 
-            if (containerType == editRowType)
+            if ((Type)containerType == editRowType)
             {
                 child = new DataGridEditRow();
                 child.Owner = this.owner;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Telerik.Core;
 
@@ -162,5 +163,23 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
             return (slot.Start <= this.start && this.start < slot.End) || (this.start <= slot.Start && slot.Start < this.end);
         }
-    }
+
+		public override int GetHashCode()
+		{
+			int hashCode = 1719619353;
+			hashCode = hashCode * -1521134295 + end.GetHashCode();
+			hashCode = hashCode * -1521134295 + start.GetHashCode();
+			return hashCode;
+		}
+
+		public static bool operator ==(Slot left, Slot right)
+		{
+			return EqualityComparer<Slot>.Default.Equals(left, right);
+		}
+
+		public static bool operator !=(Slot left, Slot right)
+		{
+			return !(left == right);
+		}
+	}
 }
