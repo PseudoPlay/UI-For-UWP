@@ -3,7 +3,7 @@
     /// <summary>
     /// Possible IGroup types.
     /// </summary>
-    internal enum GroupType
+    public enum GroupType
     {
         /// <summary>
         /// The group has no children and usually an aggregate value is available for it.

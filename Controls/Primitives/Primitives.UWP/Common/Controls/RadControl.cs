@@ -15,10 +15,10 @@ namespace Telerik.UI.Xaml.Controls
     /// </summary>
     public abstract class RadControl : Control
     {
-        internal const char VisualStateDelimiter = ',';
+        public const char VisualStateDelimiter = ',';
 
         // For test purposes only.
-        internal static bool IsInTestMode;
+        public static bool IsInTestMode;
 
         private bool isUnloaded; // determines whether the Unload event has been received
         private bool isLoaded;
@@ -50,7 +50,7 @@ namespace Telerik.UI.Xaml.Controls
             }
         }
 
-        internal bool IsInternalPropertyChange
+        public bool IsInternalPropertyChange
         {
             get
             {
@@ -73,7 +73,7 @@ namespace Telerik.UI.Xaml.Controls
         /// Gets a value indicating whether the control is currently in a process of being loaded on the visual tree. 
         /// This flag indicates that currently the LoadCore routine is executed and the control is still not completely loaded.
         /// </summary>
-        protected internal bool IsLoading
+         public bool IsLoading
         {
             get
             {
@@ -84,7 +84,7 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the Unloaded event has been received.
         /// </summary>
-        protected internal bool IsUnloaded
+         public bool IsUnloaded
         {
             get
             {
@@ -95,7 +95,7 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the control has been unloaded from the visual tree.
         /// </summary>
-        protected internal bool WasUnloaded
+         public bool WasUnloaded
         {
             get
             {
@@ -106,7 +106,7 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the <see cref="OnApplyTemplate"/> method and the <see cref="ApplyTemplateCore"/> routine is passed.
         /// </summary>
-        protected internal bool IsTemplateApplied
+         public bool IsTemplateApplied
         {
             get
             {
@@ -114,12 +114,12 @@ namespace Telerik.UI.Xaml.Controls
             }
         }
 
-        internal bool InvokeAsync(DispatchedHandler action)
+        public bool InvokeAsync(DispatchedHandler action)
         {
             return this.InvokeAsync(CoreDispatcherPriority.Normal, action);
         }
 
-        internal bool InvokeAsync(CoreDispatcherPriority priority, DispatchedHandler action)
+        public bool InvokeAsync(CoreDispatcherPriority priority, DispatchedHandler action)
         {
             if (this.isUnloaded || !this.isTemplateApplied)
             {
@@ -135,15 +135,15 @@ namespace Telerik.UI.Xaml.Controls
             var suppressionVariable = this.Dispatcher.RunAsync(priority, action);
             return true;
         }
-        
-        internal void ChangePropertyInternally(DependencyProperty property, object value)
+
+        public void ChangePropertyInternally(DependencyProperty property, object value)
         {
             this.internalPropertyChange++;
             this.SetValue(property, value);
             this.internalPropertyChange--;
         }
 
-        internal T GetTemplatePartField<T>(string name) where T : DependencyObject
+        public T GetTemplatePartField<T>(string name) where T : DependencyObject
         {
             T part = this.GetTemplateChild(name) as T;
             if (part == null && !DesignMode.DesignModeEnabled)
@@ -159,7 +159,7 @@ namespace Telerik.UI.Xaml.Controls
         /// </summary>
         /// <param name="update">True to re-evaluate the current visual state, false otherwise.</param>
         /// <param name="animate">True to use animations when updating visual state, false otherwise.</param>
-        protected internal void EndVisualStateUpdate(bool update, bool animate)
+        protected  void EndVisualStateUpdate(bool update, bool animate)
         {
             if (this.visualStateUpdateLock > 0)
             {
@@ -176,7 +176,7 @@ namespace Telerik.UI.Xaml.Controls
         /// Re-evaluates the current visual state for the control and updates it if necessary.
         /// </summary>
         /// <param name="animate">True to use transitions during state update, false otherwise.</param>
-        protected internal virtual void UpdateVisualState(bool animate)
+        public virtual void UpdateVisualState(bool animate)
         {
             if (!this.CanUpdateVisualState())
             {
@@ -194,7 +194,7 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Locks any visual state update. Useful when performing batch operations.
         /// </summary>
-        protected internal void BeginVisualStateUpdate()
+        protected  void BeginVisualStateUpdate()
         {
             this.visualStateUpdateLock++;
         }

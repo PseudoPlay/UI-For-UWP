@@ -41,7 +41,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             }
         }
 
-        internal void OpenColumnsFlyout()
+        public void OpenColumnsFlyout()
         {
             this.columnReorderFlyoutContent.ClearUI();
 

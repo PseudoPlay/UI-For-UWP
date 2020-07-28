@@ -7,7 +7,7 @@ using Telerik.Data.Core.Layouts;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class GridEditRowModel : GridRowModel
+    public class GridEditRowModel : GridRowModel
     {
         public ItemInfo ReadOnlyRowInfo { get; set; }
     }

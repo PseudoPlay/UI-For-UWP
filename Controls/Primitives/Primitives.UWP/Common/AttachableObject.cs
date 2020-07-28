@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// </summary>
         /// <param name="owner">The object instance that owns this one.</param>
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "These virtual calls do not rely on uninitialized base state.")]
-        internal AttachableObject(T owner)
+        public AttachableObject(T owner)
             : this()
         {
             this.Owner = owner;

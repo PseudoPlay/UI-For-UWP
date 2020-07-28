@@ -137,8 +137,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
             DependencyProperty.Register(nameof(ListenForNestedPropertyChange), typeof(bool), typeof(RadDataGrid), new PropertyMetadata(false, OnListenForNestedPropertyChangePropertyChanged));
 
         private DataGridColumnHeaderPanel columnHeadersPanel;
-        private DataGridCellsPanel cellsPanel;
-        private DataGridRootPanel rootPanel;
+        public DataGridCellsPanel cellsPanel;
+        public DataGridRootPanel rootPanel;
         private Panel frozenGroupHeadersHost;
         private Panel scrollableAdornerHostPanel;
         private Panel adornerHostPanel;
@@ -629,7 +629,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         internal bool RootPanelMeasure { get; set; }
 
-        internal ScrollViewer ScrollViewer
+        public ScrollViewer ScrollViewer
         {
             get
             {
@@ -637,7 +637,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal DataGridColumnHeaderPanel ColumnHeadersHost
+        public DataGridColumnHeaderPanel ColumnHeadersHost
         {
             get
             {
@@ -654,7 +654,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal Panel DecorationsHost
+        public Panel DecorationsHost
         {
             get
             {
@@ -662,7 +662,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal Panel AdornerHost
+        public Panel AdornerHost
         {
             get
             {
@@ -686,7 +686,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal DataGridCellsPanel CellsPanel
+        public DataGridCellsPanel CellsPanel
         {
             get
             {
@@ -694,7 +694,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal DataGridServicePanel ServicePanel
+        public DataGridServicePanel ServicePanel
         {
             get
             {
@@ -710,7 +710,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal GridEditRowLayer EditRowLayer
+        public GridEditRowLayer EditRowLayer
         {
             get
             {
@@ -718,7 +718,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal GridEditRowLayer FrozenEditRowLayer
+        public GridEditRowLayer FrozenEditRowLayer
         {
             get
             {
@@ -734,7 +734,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal DataGridContentFlyout ContentFlyout
+        public DataGridContentFlyout ContentFlyout
         {
             get
             {
@@ -742,7 +742,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        private static bool ShouldExecuteOperationsSyncroniously
+        public static bool ShouldExecuteOperationsSyncroniously
         {
             get
             {

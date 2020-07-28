@@ -4,7 +4,7 @@ using Telerik.Data.Core.Layouts;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class GridRowModel : GridElement, IItemInfoNode
+    public class GridRowModel : GridElement, IItemInfoNode
     {
         public ItemInfo ItemInfo
         {

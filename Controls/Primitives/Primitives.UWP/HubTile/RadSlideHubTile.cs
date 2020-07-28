@@ -180,7 +180,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Re-evaluates the current visual state for the control and updates it if necessary.
         /// </summary>
         /// <param name="animate">True to use transitions during state update, false otherwise.</param>
-        protected internal override void UpdateVisualState(bool animate)
+        public override void UpdateVisualState(bool animate)
         {
             base.UpdateVisualState(animate);
 

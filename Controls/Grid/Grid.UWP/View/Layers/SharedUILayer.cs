@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.View
     /// <summary>
     /// Represents a layer that shares common UI - like Canvas or other Panel with other layers. For example such layers are <see cref="DecorationLayer"/> and <see cref="SelectionLayer"/>.
     /// </summary>
-    internal abstract class SharedUILayer : DataGridLayer
+    public abstract class SharedUILayer : DataGridLayer
     {
         private Panel sharedPanel;
 

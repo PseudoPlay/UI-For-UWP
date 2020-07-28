@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class DataGridCurrencyService : ServiceBase<RadDataGrid>
+    public class DataGridCurrencyService : ServiceBase<RadDataGrid>
     {
         internal bool ensureCurrentIntoView = true;
         internal bool isSynchronizedWithCurrent;
@@ -159,7 +159,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.UpdateState(scrollToCurrent);
         }
 
-        internal bool ChangeCurrentItem(object newCurrentItem, bool cancelable, bool scrollToCurrent)
+        public bool ChangeCurrentItem(object newCurrentItem, bool cancelable, bool scrollToCurrent)
         {
             if (this.updatingCurrent)
             {
@@ -175,7 +175,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return this.ChangeCurrentItem(info, cancelable, scrollToCurrent);
         }
 
-        internal bool ChangeCurrentItem(ItemInfo? info, bool cancelable, bool scrollToCurrent)
+        public bool ChangeCurrentItem(ItemInfo? info, bool cancelable, bool scrollToCurrent)
         {
             if (this.updatingCurrent)
             {
@@ -191,7 +191,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return this.ChangeCurrentCore(newCurrent, info, cancelable, scrollToCurrent);
         }
 
-        internal bool RefreshCurrentItem(bool scrollToCurrent)
+        public bool RefreshCurrentItem(bool scrollToCurrent)
         {
             var info = this.Owner.Model.FindItemInfo(this.currentItem);
             return this.ChangeCurrentCore(this.currentItem, info, false, scrollToCurrent);

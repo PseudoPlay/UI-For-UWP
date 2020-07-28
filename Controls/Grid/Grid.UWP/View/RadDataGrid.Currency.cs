@@ -25,7 +25,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         public static readonly DependencyProperty IsSynchronizedWithCurrentItemProperty =
             DependencyProperty.Register(nameof(IsSynchronizedWithCurrentItem), typeof(bool), typeof(RadDataGrid), new PropertyMetadata(false, OnIsSynchronizedWithCurrentItemChanged));
 
-        internal readonly DataGridCurrencyService CurrencyService;
+        public readonly DataGridCurrencyService CurrencyService;
 
         /// <summary>
         /// Occurs when the <see cref="CurrentItem"/> property has changed.
@@ -67,6 +67,10 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 return this.CurrencyService.CurrentItem;
             }
+        }
+        public bool SetCurrentItem(object item, bool cancelable=true, bool scrollToCurrent=true)
+		{
+            return this.CurrencyService.ChangeCurrentItem(item, cancelable, scrollToCurrent);
         }
 
         /// <summary>

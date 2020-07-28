@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid.View
 {
-    internal class GridEditRowLayer : SharedUILayer
+    public class GridEditRowLayer : SharedUILayer
     {
         private bool focusFirstEditor;
 

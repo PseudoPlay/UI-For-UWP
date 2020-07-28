@@ -1,6 +1,6 @@
 ﻿namespace Telerik.Data.Core.Layouts
 {
-    internal struct LayoutInfo
+    public struct LayoutInfo
     {
         public int Line;
         public int ChildLine; // This is the index of the line within the Children collection of the owning group (if any)

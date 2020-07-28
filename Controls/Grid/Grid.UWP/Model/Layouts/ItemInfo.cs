@@ -1,6 +1,6 @@
 ﻿namespace Telerik.Data.Core.Layouts
 {
-    internal struct ItemInfo
+    public struct ItemInfo
     {
         public object Item;
         public int Id;
@@ -20,6 +20,6 @@
         // Layout properties
         public LayoutInfo LayoutInfo;
 
-        internal static readonly ItemInfo Invalid = new ItemInfo();
+        public static readonly ItemInfo Invalid = new ItemInfo();
     }
 }

@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.View
     /// <summary>
     /// Represents a logical layer within a <see cref="RadDataGrid"/> control, which handles specific visualization part of the component's appearance.
     /// </summary>
-    internal abstract class DataGridLayer : AttachableObject<RadDataGrid>
+    public abstract class DataGridLayer : AttachableObject<RadDataGrid>
     {
         /// <summary>
         /// Gets the <see cref="UIElement"/> instance that is used by this layer.
