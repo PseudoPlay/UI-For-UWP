@@ -216,11 +216,10 @@
 	<Color x:Key="SystemAccentColorLight1">#FF3D379E</Color>
 	<Color x:Key="SystemAccentColorLight2">#FF2E2D8F</Color>
 	<Color x:Key="SystemAccentColorLight3">#FF1F2280</Color>
-	<Color x:Key="RegionColor">#FF000000</Color>
-	<SolidColorBrush x:Key="RegionBrush" Color="{StaticResource RegionColor}" />
+	<SolidColorBrush x:Key="TelerikGridCurrentCellBackgroundBrush" Color="#441B251B"/>
+	<SolidColorBrush x:Key="TelerikGridSelectedBackgroundBrush" Color="#33410F31"/>
 	<SolidColorBrush x:Key="TelerikGridBorderBrush" Color="{StaticResource SystemAccentColorDark1}"/>
 	<SolidColorBrush x:Key="TelerikGridOverlayBackgroundBrush" Color="{StaticResource SystemBaseMediumColor}"/>
 	<SolidColorBrush x:Key="TelerikGridCurrentCellBackgroundBrush" Color="#1B751B"/>
 	<SolidColorBrush x:Key="TelerikGridSelectedBackgroundBrush" Color="#311F21"/>
-	<RevealBackgroundBrush x:Key="SystemControlHighlightListLowRevealBackgroundBrush" TargetTheme="Light" Color="{ThemeResource SystemRevealListMediumColor}" FallbackColor="{ StaticResource SystemListMediumColor}" />
 </ResourceDictionary>
