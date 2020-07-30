@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {
-    internal static class DataSourceViewFacotry
+    public static class DataSourceViewFacotry
     {
         public static IDataSourceView CreateDataSourceView(object dataSource)
         {

@@ -39,7 +39,7 @@
         <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"/>
         <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"/>
         <Setter Property="BorderThickness" Value="{ThemeResource ComboBoxBorderThemeThickness}"/>
-        <Setter Property="TabNavigation" Value="Once"/>
+		<Setter Property="TabNavigation" Value="Cycle"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
@@ -198,7 +198,7 @@
         <Setter Property="SelectedBackground" Value="{ThemeResource SystemControlHighlightListAccentLowBrush}" />
         <Setter Property="DisabledForeground" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TabNavigation" Value="Local" />
+		<Setter Property="TabNavigation" Value="Cycle" />
         <Setter Property="Padding" Value="{ThemeResource ComboBoxItemThemePadding}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />

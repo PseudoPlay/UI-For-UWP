@@ -6,7 +6,7 @@ using Telerik.Core.Data;
 
 namespace Telerik.Data.Core
 {
-    internal interface IDataSourceView
+    public interface IDataSourceView
     {
         event NotifyCollectionChangedEventHandler CollectionChanged;
         event NotifyCollectionChangedEventHandler CollectionChanging;

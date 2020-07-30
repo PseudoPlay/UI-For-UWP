@@ -5,8 +5,8 @@
     <!--Colors-->
     <Color x:Key="TelerikWatermarkForegroundColor">#99666666</Color>
     <Color x:Key="TelerikWatermarkDisabledForegroundColor">#1FFFFFFF</Color>
-    <Color x:Key="TelerikForegroundColor">#EEEEEEEE</Color>
-    <Color x:Key="TelerikSecondaryForegroundColor">#99AAAAFF</Color>
+    <Color x:Key="TelerikForegroundColor">#EEF4F4F4</Color>
+    <Color x:Key="TelerikSecondaryForegroundColor">#99E0E0E0</Color>
     <Color x:Key="TelerikSelectedColor">#911F21</Color>
     <Color x:Key="TelerikHighlightedColor">#FF2086D9</Color>
     <Color x:Key="TelerikPressedBackgroundColor">#DDFFFFFF</Color>

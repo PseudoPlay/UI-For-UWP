@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telerik.Core.Data
 {
-    internal interface IBatchLoadingProvider
+    public interface IBatchLoadingProvider
     {
         event EventHandler<BatchLoadingEventArgs> StatusChanged;
         uint? BatchSize { get; }

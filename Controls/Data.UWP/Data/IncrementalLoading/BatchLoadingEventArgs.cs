@@ -2,7 +2,7 @@
 
 namespace Telerik.Core.Data
 {
-    internal class BatchLoadingEventArgs : EventArgs
+    public class BatchLoadingEventArgs : EventArgs
     {
         public BatchLoadingEventArgs(BatchLoadingStatus status)
             : base()

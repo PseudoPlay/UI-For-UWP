@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.Core.Data
 {
-    internal class BatchLoadingProvider<T> : IDisposable, IBatchLoadingProvider
+    public class BatchLoadingProvider<T> : IDisposable, IBatchLoadingProvider
     {
         private ISupportIncrementalLoading incrementalLoadingSource;
         private ICollection<T> loadedItemsCollection;

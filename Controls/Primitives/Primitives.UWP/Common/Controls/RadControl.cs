@@ -387,7 +387,8 @@ namespace Telerik.UI.Xaml.Controls
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            this.isLoaded = false;
+           // this.isLoaded = false;
+           // hack! 
             this.UnloadCore();
             this.isUnloaded = true;
             this.wasUnloaded = true;

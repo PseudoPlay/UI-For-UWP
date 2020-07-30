@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Telerik.Data.Core
 {
-    internal class BindingExpressionHelper
+    public class BindingExpressionHelper
     {
         /// <summary>
         /// Returns a function that will return the value of the property, specified by the provided propertyPath.
@@ -24,13 +24,13 @@ namespace Telerik.Data.Core
             return (Func<object, object>)methodInfo.Invoke(null, new object[] { compiled });
         }
 
-        internal static Action<object, object> CreateSetValueAction(Type itemType, string propertyPath)
+        public static Action<object, object> CreateSetValueAction(Type itemType, string propertyPath)
         {
             var setValueFunc = BindingExpressionHelper.CreateSetValueFunc(itemType, propertyPath);
             return setValueFunc != null ? new Action<object, object>((item, propertyValue) => setValueFunc?.Invoke(item, propertyValue)) : null;
         }
 
-        internal static Func<object, object, object> CreateSetValueFunc(Type itemType, string propertyPath)
+        public static Func<object, object, object> CreateSetValueFunc(Type itemType, string propertyPath)
         {
             var parameter = Expression.Parameter(itemType, "item");
             Expression getter = BindingExpressionHelper.GenerateMemberExpression(propertyPath, parameter);

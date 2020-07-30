@@ -2,7 +2,7 @@
 
 namespace Telerik.Core.Data
 {
-    internal partial class RadListSource
+    public partial class RadListSource
     {
         private CurrencyManagementMode currencyMode;
         private IDataSourceItem currentItem;
@@ -140,7 +140,7 @@ namespace Telerik.Core.Data
             return false;
         }
 
-        internal void UpdateCurrentItem(IDataSourceItem newCurrentItem)
+        public void UpdateCurrentItem(IDataSourceItem newCurrentItem)
         {
             if (this.currencyMode == CurrencyManagementMode.None)
             {
@@ -150,7 +150,7 @@ namespace Telerik.Core.Data
             this.SetCurrentItemCore(newCurrentItem, false);
         }
 
-        internal IDataSourceItem CreateNewOrGetCurrent(object dataItem, ref IDataSourceItem newCurrent)
+        public IDataSourceItem CreateNewOrGetCurrent(object dataItem, ref IDataSourceItem newCurrent)
         {
             if (newCurrent == null && this.previousCurrentItem != null &&
                 object.ReferenceEquals(this.previousCurrentItem.Value, dataItem))

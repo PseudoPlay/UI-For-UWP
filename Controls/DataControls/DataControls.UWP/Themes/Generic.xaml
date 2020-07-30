@@ -445,7 +445,7 @@
 
     <Style TargetType="local:RadListView">
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="TabNavigation" Value="Once" />
+		<Setter Property="TabNavigation" Value="Cycle" />
         <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="False" />
         <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -698,7 +698,7 @@
     </Style>
 
     <Style TargetType="listView:RadListViewItem">
-        <Setter Property="TabNavigation" Value="Local"/>
+		<Setter Property="TabNavigation" Value="Cycle"/>
         <Setter Property="UseSystemFocusVisuals" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>

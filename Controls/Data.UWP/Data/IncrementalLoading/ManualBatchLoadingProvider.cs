@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Telerik.Core.Data
 {
-    internal class ManualBatchLoadingProvider<T> : IDisposable, IBatchLoadingProvider
+    public class ManualBatchLoadingProvider<T> : IDisposable, IBatchLoadingProvider
     {
         private ICollection<T> loadedItemsCollection;
         private BatchLoadingStatus? status;

@@ -2,7 +2,7 @@
 
 namespace Telerik.Core.Data
 {
-    internal class DataSourceItem : IDataSourceItem
+    public class DataSourceItem : IDataSourceItem
     {
         internal bool isChecked;
         internal WeakEventHandler<PropertyChangedEventArgs> propertyChangedHandler;

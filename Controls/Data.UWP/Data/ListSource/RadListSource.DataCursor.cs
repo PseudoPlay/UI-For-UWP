@@ -1,6 +1,6 @@
 ﻿namespace Telerik.Core.Data
 {
-    internal partial class RadListSource
+    public partial class RadListSource
     {
         /// <summary>
         /// Gets the first item in the collection.

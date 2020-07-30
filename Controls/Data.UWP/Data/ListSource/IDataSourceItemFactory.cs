@@ -4,7 +4,7 @@ namespace Telerik.Core.Data
     /// <summary>
     /// Creates instances of the <see cref="IDataSourceItem"/> type which are used by a <see cref="RadListSource"/> instance.
     /// </summary>
-    internal interface IDataSourceItemFactory
+    public interface IDataSourceItemFactory
     {
         /// <summary>
         /// Creates a <see cref="IDataSourceItem"/> instance.

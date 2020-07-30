@@ -10,7 +10,7 @@ namespace Telerik.Core.Data
     /// <summary>
     /// Implements a simple list-based data source that provides currency management and implements the <see cref="System.Collections.Specialized.INotifyCollectionChanged"/> interface.
     /// </summary>
-    internal partial class RadListSource : DisposableObject, IEnumerable, ICollection, INotifyCollectionChanged, ICurrencyManager, IWeakEventListener
+    public partial class RadListSource : DisposableObject, IEnumerable, ICollection, INotifyCollectionChanged, ICurrencyManager, IWeakEventListener
     {
         internal static readonly object UnsetObject = new object();
 

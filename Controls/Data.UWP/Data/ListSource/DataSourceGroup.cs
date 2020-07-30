@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Telerik.Core.Data
 {
-    internal class DataSourceGroup : DataSourceItem, IDataSourceGroup
+    public class DataSourceGroup : DataSourceItem, IDataSourceGroup
     {
         private List<IDataSourceItem> childItems;
         private IDataSourceGroup nextGroup;

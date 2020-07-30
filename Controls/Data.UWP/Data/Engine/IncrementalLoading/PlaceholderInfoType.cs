@@ -1,6 +1,6 @@
 ﻿namespace Telerik.Data.Core
 {
-    internal enum PlaceholderInfoType
+    public enum PlaceholderInfoType
     {
         IncrementalLoading,
         None

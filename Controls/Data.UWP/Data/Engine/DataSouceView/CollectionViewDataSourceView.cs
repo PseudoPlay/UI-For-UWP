@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {
-    internal class CollectionViewDataSourceView : IDataSourceView, IWeakEventListener, IDataSourceCurrency
+    public class CollectionViewDataSourceView : IDataSourceView, IWeakEventListener, IDataSourceCurrency
     {
         private IList<object> internalList;
         private WeakEventHandler<IVectorChangedEventArgs> collectionChangedEventHandler;

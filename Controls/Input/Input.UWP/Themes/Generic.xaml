@@ -581,7 +581,7 @@
     <Style TargetType="localAutoComplete:SuggestionItem" BasedOn="{StaticResource SuggestionItemStyle}">
         <Setter Property="BorderBrush" Value="{ThemeResource TelerikAutoCompleteBoxSelectorItemBorderBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TabNavigation" Value="Local" />
+		<Setter Property="TabNavigation" Value="Cycle" />
         <Setter Property="Padding" Value="8,8" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

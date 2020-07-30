@@ -147,14 +147,6 @@
                                         <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
                                     </Storyboard>
                                 </VisualState>
-								<VisualState x:Name="RevealPointerOver">
-									<VisualState.Setters>
-										<Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
-										<Setter Target="RootGrid.Background" Value="{ThemeResource ButtonRevealBackgroundPointerOver}" />
-										<Setter Target="ContentPresenter.BorderBrush" Value="Transparent"/>
-										<Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPointerOver}" />
-									</VisualState.Setters>
-								</VisualState>
 								<VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
@@ -1656,7 +1648,7 @@
 
     <Style TargetType="localPrimitives:DataGridFilterComboBoxItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TabNavigation" Value="Local" />
+		<Setter Property="TabNavigation" Value="Cycle" />
         <Setter Property="Padding" Value="8,10" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">

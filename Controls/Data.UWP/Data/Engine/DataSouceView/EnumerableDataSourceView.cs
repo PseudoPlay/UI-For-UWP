@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {
-    internal class EnumerableDataSourceView : IDataSourceView, IWeakEventListener
+    public class EnumerableDataSourceView : IDataSourceView, IWeakEventListener
     {
         private List<object> internalList;
         private WeakEventHandler<NotifyCollectionChangedEventArgs> collectionChangedEventHandler;

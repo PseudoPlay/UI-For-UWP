@@ -490,7 +490,7 @@
     </Style>
 
     <Style TargetType="local:RadDataBoundListBoxItem">
-        <Setter Property="TabNavigation" Value="Local" />
+		<Setter Property="TabNavigation" Value="Cycle" />
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
