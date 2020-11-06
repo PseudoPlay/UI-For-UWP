@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Telerik.Data.Core;
 using Telerik.UI.Automation.Peers;
+
 using Windows.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid
@@ -28,7 +30,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
 
             this.selectedItems = new SelectedItemCollection();
-            this.selectedItems.AllowMultipleSelect = 
+            this.selectedItems.AllowMultipleSelect =
                 this.Owner.SelectionMode == DataGridSelectionMode.Multiple || this.Owner.SelectionMode == DataGridSelectionMode.Extended;
             this.selectedItems.SelectionUnit = this.Owner.SelectionUnit;
 

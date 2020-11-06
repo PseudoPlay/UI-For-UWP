@@ -19,7 +19,7 @@ namespace Telerik.Data.Core
             var lambda = Expression.Lambda(getter, parameter);
             var compiled = lambda.Compile();
             var methodInfo = typeof(BindingExpressionHelper).GetTypeInfo()
-                .GetDeclaredMethod("ToUntypedSingleParamFunc")
+                .GetDeclaredMethod(itemType.IsClass ? "ToUntypedSingleParamFuncO" : "ToUntypedSingleParamFunc")
                 .MakeGenericMethod(new[] { itemType, lambda.Body.Type });
             return (Func<object, object>)methodInfo.Invoke(null, new object[] { compiled });
         }
@@ -59,10 +59,14 @@ namespace Telerik.Data.Core
         {
             return item => func.Invoke((T)item);
         }
+        private static Func<object, object> ToUntypedSingleParamFuncO<T, TResult>(Func<T, TResult> func) where T: class
+        {
+            return item => item is T i ? func.Invoke(i) : default;
+        }
 
         private static Func<object, object, object> ToUntypedDoubleParamFunc<T, U, TResult>(Func<T, U, TResult> func)
         {
-            return (item, propertyValue) => func.Invoke((T)item, (U)propertyValue);
+            return (item, propertyValue) => item is T i ? func.Invoke(i, (U)propertyValue) : default;
         }
 
         private static Expression GenerateMemberExpression(string propertyPath, ParameterExpression parameter)

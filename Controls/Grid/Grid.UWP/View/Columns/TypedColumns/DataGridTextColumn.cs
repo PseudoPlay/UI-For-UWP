@@ -26,6 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         private Style defaultTextCellStyle;
         private Style defaultCellEditorStyle;
         private Style defaultCellFlyoutContentStyle;
+        public static Style staticCellFlyoutContentStyle;
         private string cellContentFormatCache;
 
         /// <summary>
@@ -64,10 +65,14 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultTextCellStyle == null)
                 {
-                    this.defaultTextCellStyle = ResourceHelper.LoadEmbeddedResource(
-                        typeof(DataGridTextColumn),
-                        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
-                        "DefaultColumnStyle") as Style;
+                    if (staticCellFlyoutContentStyle == null)
+                    {
+                      staticCellFlyoutContentStyle = ResourceHelper.LoadEmbeddedResource(
+                            typeof(DataGridTextColumn),
+                            "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
+                            "DefaultColumnStyle") as Style;
+                    }
+                    this.defaultTextCellStyle = staticCellFlyoutContentStyle;
                 }
                 return this.defaultTextCellStyle;
             }

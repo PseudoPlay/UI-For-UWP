@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// Identifies the <see cref="GridLinesThickness"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty GridLinesThicknessProperty =
-            DependencyProperty.Register(nameof(GridLinesThickness), typeof(double), typeof(RadDataGrid), new PropertyMetadata(2d, OnGridLinesThicknessChanged));
+            DependencyProperty.Register(nameof(GridLinesThickness), typeof(double), typeof(RadDataGrid), new PropertyMetadata(1d, OnGridLinesThicknessChanged));
 
         /// <summary>
         /// Identifies the <see cref="GridLinesBrush"/> dependency property.
@@ -55,7 +55,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         public static readonly DependencyProperty AlternationStartIndexProperty =
             DependencyProperty.Register(nameof(AlternationStartIndex), typeof(int), typeof(RadDataGrid), new PropertyMetadata(0, OnAlternationStartIndexChanged));
 
-        private double gridLinesThicknessCache = 2d;
+        private double gridLinesThicknessCache = 1d;
         private GridLinesVisibility gridLinesVisibilityCache = GridLinesVisibility.Both;
         private Brush gridLinesBrushCache;
         private Brush alternateRowBackgroundCache;

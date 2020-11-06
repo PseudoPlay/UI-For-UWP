@@ -387,8 +387,9 @@
     </Style>
 
     <Style TargetType="local:RadDataGrid">
-        <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
-        <Setter Property="Foreground" Value="{ThemeResource TelerikGridForegroundBrush}"/>
+        <Setter Property="FontSize" Value="10"/>
+		<Setter Property="Margin" Value="0,0,0,0" />
+		<Setter Property="Foreground" Value="{ThemeResource TelerikGridForegroundBrush}"/>
         <Setter Property="Background" Value="{ThemeResource TelerikGridBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{ThemeResource TelerikGridBorderBrush}"/>
         <Setter Property="BorderThickness" Value="2,0,2,2"/>

@@ -923,7 +923,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.columnReorderServicePanel.Owner = this;
             this.cellFlyoutShowTimeOutAnimationBoard = new Storyboard();
             this.cellFlyoutShowTimeOutAnimation = new DoubleAnimation();
-            this.cellFlyoutShowTimeOutAnimation.Duration = TimeSpan.FromSeconds(1);
+            this.cellFlyoutShowTimeOutAnimation.Duration = TimeSpan.FromSeconds(0.5);
             this.cellFlyoutShowTimeOutAnimationBoard.Children.Add(this.cellFlyoutShowTimeOutAnimation);
             Storyboard.SetTarget(this.cellFlyoutShowTimeOutAnimation, this.ContentFlyout);
             Storyboard.SetTargetProperty(this.cellFlyoutShowTimeOutAnimation, "Opacity");

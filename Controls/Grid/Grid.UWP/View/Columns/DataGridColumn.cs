@@ -88,6 +88,12 @@ namespace Telerik.UI.Xaml.Controls.Grid
             DependencyProperty.Register(nameof(Name), typeof(string), typeof(DataGridColumn), new PropertyMetadata(null));
 
         /// <summary>
+        /// Identifies the <see cref="Name"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty TipProperty =
+            DependencyProperty.Register(nameof(Tip), typeof(string), typeof(DataGridColumn), new PropertyMetadata(null));
+
+        /// <summary>
         /// Identifies the <see cref="DataOperationsFlyoutTemplate"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty DataOperationsFlyoutTemplateProperty =
@@ -152,6 +158,19 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 this.SetValue(NameProperty, value);
             }
         }
+
+        public string Tip
+        {
+            get
+            {
+                return (string)this.GetValue(TipProperty);
+            }
+            set
+            {
+                this.SetValue(TipProperty, value);
+            }
+        }
+
 
         /// <summary>
         /// Gets or sets a value indicating whether the user can edit this column.
