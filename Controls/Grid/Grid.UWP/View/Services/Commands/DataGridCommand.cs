@@ -34,5 +34,6 @@ namespace Telerik.UI.Xaml.Controls.Grid.Commands
                 return (int)this.id;
             }
         }
+     
     }
 }

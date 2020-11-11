@@ -168,7 +168,7 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Margin="0,0,5,0" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" x:Name="Icon" Text="{Binding IconText, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Foreground}" />
+                                <TextBlock Margin="0,0,5,0" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" x:Name="Icon" Text="{Binding IconText, Mode=OneTime, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Foreground}" />
                                 <ContentPresenter Grid.Column="1" x:Name="ContentPresenter" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" />
                             </Grid>
                         </Border>
@@ -198,19 +198,19 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,0,9" IconText="&#xE71C;"
-                                                                                  Opacity="{Binding CanFilter, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
+                                                                                  Opacity="{Binding CanFilter, Mode=OneTime, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
                                                                                   local:GridLocalizationManager.Key="DataOperationsButtonFilter"
                                                                                   local:GridLocalizationManager.PropertyName="Content"
-                                                                                  Command="{Binding Command}" CommandParameter="Filter" />
+                                                                                  Command="{Binding Command, Mode=OneTime}" CommandParameter="Filter" />
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,0,9" IconText="&#xE8CB;"
-                                                                                  Opacity="{Binding CanSort, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
+                                                                                  Opacity="{Binding CanSort, Mode=OneTime, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
                                                                                   local:GridLocalizationManager.Key="DataOperationsButtonSort"
                                                                                   local:GridLocalizationManager.PropertyName="Content" 
-                                                                                  Command="{Binding Command}" CommandParameter="Sort" Grid.Column="1" />
+                                                                                  Command="{Binding Command, Mode=OneTime}" CommandParameter="Sort" Grid.Column="1" />
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,20,9" IconText="&#xE8C4;"
                                                                                   Opacity="{Binding CanGroup, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
-                                                                                  Content="{Binding Command.IsGrouped, Converter={StaticResource DataOperationsButtonTextConverter}}"
-                                                                                  Command="{Binding Command}" CommandParameter="Group" Grid.Column="2" />
+                                                                                  Content="{Binding Command.IsGrouped, Mode=OneTime, Converter={StaticResource DataOperationsButtonTextConverter}}"
+                                                                                  Command="{Binding Command, Mode=OneTime}" CommandParameter="Group" Grid.Column="2" />
                             </Grid>
                         </Border>
 
@@ -435,7 +435,7 @@
 
                             <localPrimitives:FrozenGroupsPanel x:Name="PART_HeadersHost" />
                             <localPrimitives:DataGridServicePanel Position="{TemplateBinding GroupPanelPosition}" x:Name="PART_ServicePanel" IsTabStop="False"/>
-                            <localPrimitives:DataGridColumnReorderServicePanel x:Name="PART_ColumnReorderServicePanel" Margin="{Binding BorderThickness, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource BorderThicknessToMarginConverter}}" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Collapsed"/>
+                            <localPrimitives:DataGridColumnReorderServicePanel x:Name="PART_ColumnReorderServicePanel" Margin="{Binding BorderThickness, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=OneTime, Converter={StaticResource BorderThicknessToMarginConverter}}" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Collapsed"/>
                             <Canvas x:Name="PART_AdornerHost" IsHitTestVisible="False"/>
                             <localPrimitives:DataGridContentFlyout x:Name="PART_GridFlyout" IsTabStop="False"/>
                         </localPrimitives:DataGridRootPanel>
@@ -858,8 +858,8 @@
                                 BorderThickness="{TemplateBinding BorderThickness}" Margin="{TemplateBinding Padding}" x:Name="PART_DescriptorContent">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
                                 <Image Source="{ThemeResource TelerikGridReorderHandle}" Height="16" Width="16" VerticalAlignment="Center"  />
-                                <ContentControl Margin="10,0,0,0" VerticalAlignment="Center" Content="{Binding DisplayContent}"/>
-                                <TextBlock Text="{Binding SortOrder, Converter={StaticResource SortOrderConverter}}" 
+                                <ContentControl Margin="10,0,0,0" VerticalAlignment="Center" Content="{Binding DisplayContent, Mode=OneTime}"/>
+                                <TextBlock Text="{Binding SortOrder, Mode=OneTime, Converter={StaticResource SortOrderConverter}}" 
                                             FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="10" Margin="6,0,4,2" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
@@ -901,10 +901,10 @@
                                 <Image Source="{ThemeResource TelerikGridReorderHandle}" Stretch="None"
                                        MinHeight="16" MinWidth="16" VerticalAlignment="Center" />
                                 <ContentControl FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}"
-                                                Margin="10,0" VerticalAlignment="Center" Content="{Binding Header}"/>
+                                                Margin="10,0" VerticalAlignment="Center" Content="{Binding Header, Mode=OneTime}"/>
                             </StackPanel>
                         </Border>
-                        <CheckBox x:Name="PART_SelectCheckBox" Margin="2 0 0 0" Grid.Column="1" IsChecked="{Binding IsVisible}"
+                        <CheckBox x:Name="PART_SelectCheckBox" Margin="2 0 0 0" Grid.Column="1" IsChecked="{Binding IsVisible, Mode=OneTime}"
                                   Style="{StaticResource checkBoxStyle}" />
                         <Rectangle Margin="-2" StrokeThickness="2" Stroke="{TemplateBinding Foreground}" Grid.ColumnSpan="2"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{TemplateBinding OuterBorderVisibility}"/>
@@ -926,7 +926,7 @@
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Group.Key}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Group.Key, Mode=OneTime}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -1054,7 +1054,7 @@
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <ContentPresenter x:Name="headerContent" Content="{TemplateBinding Content}" Margin="8"/>
-                                <TextBlock Text="{Binding SortDirection, Converter={StaticResource SortDirectionConverter}}"
+                                <TextBlock Text="{Binding SortDirection, Mode=OneTime, Converter={StaticResource SortDirectionConverter}}"
                                        FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="10"  Margin="2,0,4,2" VerticalAlignment="Center"/>
                             </StackPanel>
                             <primitivesCommon:InlineButton Style="{StaticResource GridServiceButtonStyle}"  x:Name="PART_FilterButton" HorizontalAlignment="Right" VerticalAlignment="Stretch"   
@@ -1384,12 +1384,12 @@
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock Text="&#xe711;" FontFamily="{ThemeResource SymbolThemeFontFamily}" VerticalAlignment="Center"
-                                                               FontSize="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,0,4,0"
-                                                               Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                               FontSize="{Binding FontSize, Mode=OneTime, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,0,4,0"
+                                                               Foreground="{Binding Foreground, Mode=OneTime, RelativeSource={RelativeSource TemplatedParent}}"/>
                                                     <TextBlock Grid.Column="1" VerticalAlignment="Center"
                                                                Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
-                                                               Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
-                                                               FontSize="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                               Foreground="{Binding Foreground, Mode=OneTime, RelativeSource={RelativeSource TemplatedParent}}"
+                                                               FontSize="{Binding FontSize, Mode=OneTime, RelativeSource={RelativeSource TemplatedParent}}"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </localPrimitives:DataGridFilteringFlyoutClearFilterButton.ContentTemplate>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class SelectedItemCollection : ObservableCollection<object>
+    public class SelectedItemCollection : ObservableCollection<object>
     {
         private int suspendLevel;
         private bool allowMultipleSelect;

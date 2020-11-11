@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class SelectionService : Controls.Primitives.ServiceBase<RadDataGrid>
+    public class SelectionService : Controls.Primitives.ServiceBase<RadDataGrid>
     {
         internal HashSet<object> selectedRowsSet;
         internal HashSet<DataGridCellInfo> selectedCellsSet;
@@ -439,7 +439,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return item != null && this.Owner.SelectionMode != DataGridSelectionMode.None && this.Owner.SelectionUnit == DataGridSelectionUnit.Row;
         }
 
-        private void SelectRowUnit(object rowItem, bool select, bool toggleSelection)
+        public void SelectRowUnit(object rowItem, bool select, bool toggleSelection)
         {
             switch (this.Owner.SelectionMode)
             {

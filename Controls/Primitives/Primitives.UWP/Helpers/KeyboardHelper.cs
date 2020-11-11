@@ -25,7 +25,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 return CoreVirtualKeyStates.None;
             }
 
-            return window.GetKeyState(key);
+            return window.GetAsyncKeyState(key);
         }
     }
 }

@@ -390,7 +390,7 @@ namespace Telerik.UI.Xaml.Controls
            // this.isLoaded = false;
            // hack! 
             this.UnloadCore();
-            this.isUnloaded = true;
+          //  this.isUnloaded = true;
             this.wasUnloaded = true;
         }
     }

@@ -65,14 +65,13 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultTextCellStyle == null)
                 {
-                    if (staticCellFlyoutContentStyle == null)
-                    {
-                      staticCellFlyoutContentStyle = ResourceHelper.LoadEmbeddedResource(
+
+                    this.defaultTextCellStyle = ResourceHelper.LoadEmbeddedResource(
                             typeof(DataGridTextColumn),
                             "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
                             "DefaultColumnStyle") as Style;
-                    }
-                    this.defaultTextCellStyle = staticCellFlyoutContentStyle;
+                    
+                    
                 }
                 return this.defaultTextCellStyle;
             }
@@ -84,10 +83,14 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellFlyoutContentStyle == null)
                 {
-                    this.defaultCellFlyoutContentStyle = ResourceHelper.LoadEmbeddedResource(
-                        typeof(DataGridTextColumn),
-                        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
-                        "DefaultColumnFlyoutStyle") as Style;
+                    if (staticCellFlyoutContentStyle == null)
+                    {
+                         staticCellFlyoutContentStyle = ResourceHelper.LoadEmbeddedResource(
+                            typeof(DataGridTextColumn),
+                            "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
+                            "DefaultColumnFlyoutStyle") as Style;
+                    }
+                    this.defaultCellFlyoutContentStyle = staticCellFlyoutContentStyle;
                 }
                 return this.defaultCellFlyoutContentStyle;
             }

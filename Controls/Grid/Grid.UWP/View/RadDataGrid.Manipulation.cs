@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Linq;
 using Telerik.Data.Core.Layouts;
 using Telerik.UI.Automation.Peers;
@@ -11,6 +12,7 @@ using Windows.System;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation.Peers;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -135,29 +137,57 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.ContentFlyout.Hide(DataGridFlyoutId.All);
         }
 
+        internal object lastTipTarget;
+        // static MarkdownTextBlock md = new MarkdownTextBlock() { Background = null };
+        static ToolTip tooltip = new ToolTip();// { Content = md };
         internal void OnCellsPanelPointerOver(PointerRoutedEventArgs e)
         {
-            this.cellFlyoutShowTimeOutAnimationBoard.Completed -= this.CellFlyoutTimerAnimationBoardCompleted;
-            this.cellFlyoutShowTimeOutAnimationBoard.Stop();
+         //   this.cellFlyoutShowTimeOutAnimationBoard.Completed -= this.CellFlyoutTimerAnimationBoardCompleted;
+         //   this.cellFlyoutShowTimeOutAnimationBoard.Stop();
 
             var hitPoint = e.GetCurrentPoint(this.cellsPanel).Position;
 
             var cell = this.hitTestService.GetCellFromPoint(hitPoint.ToRadPoint());
-
+            object tipTarget = null;
+            string tip = null;
             if (cell != null)
             {
-                this.commandService.ExecuteCommand(CommandId.CellPointerOver, new DataGridCellInfo(cell));
 
-                if (cell.Column.IsCellFlyoutEnabled && !(this.ContentFlyout.IsOpen && this.ContentFlyout.Id != DataGridFlyoutId.Cell))
+                this.hoveredCell = cell;
+                if (cell.Column.Tip != null && !(this.ContentFlyout.IsOpen && this.ContentFlyout.Id != DataGridFlyoutId.Cell))
                 {
-                    this.cellFlyoutShowTimeOutAnimationBoard.Completed += this.CellFlyoutTimerAnimationBoardCompleted;
-                    this.hoveredCell = cell;
-                    this.cellFlyoutShowTimeOutAnimationBoard.Begin();
+                    tipTarget = cell.Container;
+                    tip = cell.Column.Tip;
+                    
+                 //   this.cellFlyoutShowTimeOutAnimationBoard.Completed += this.CellFlyoutTimerAnimationBoardCompleted;
+                    
+                  //  this.cellFlyoutShowTimeOutAnimationBoard.Begin();
+                }
+				else {
+                    this.commandService.ExecuteCommand(CommandId.CellPointerOver, new DataGridCellInfo(cell));
                 }
             }
             else
             {
+            //    tooltip.IsOpen = false;
+           //     this.hoveredCell = null;
                 this.visualStateService.UpdateHoverDecoration(null);
+            }
+            if(tipTarget != lastTipTarget)
+             {
+                tooltip.IsOpen = false;
+                if (lastTipTarget != null)
+                    ToolTipService.SetToolTip(lastTipTarget as DependencyObject, null);
+                if (tip != null && (tipTarget != null))
+                {
+                   /// tooltip.IsOpen = false;
+                    //tooltip = new ToolTip();
+                  
+                    tooltip.Content = tip;
+
+                   ToolTipService.SetToolTip(tipTarget as DependencyObject, tooltip);
+                }
+                lastTipTarget = tipTarget;
             }
         }
 
@@ -166,8 +196,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
             // clear the hover effect (if any)
             this.visualStateService.UpdateHoverDecoration(null);
 
-            this.cellFlyoutShowTimeOutAnimationBoard.Completed -= this.CellFlyoutTimerAnimationBoardCompleted;
-            this.cellFlyoutShowTimeOutAnimationBoard.Stop();
+//            this.cellFlyoutShowTimeOutAnimationBoard.Completed -= this.CellFlyoutTimerAnimationBoardCompleted;
+ //           this.cellFlyoutShowTimeOutAnimationBoard.Stop();
         }
 
         internal void OnCellsPanelPointerPressed()
@@ -312,7 +342,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        internal void HandleKeyDown(KeyRoutedEventArgs e)
+        public void HandleKeyDown(KeyRoutedEventArgs e)
         {
             if (e == null || e.Handled)
             {

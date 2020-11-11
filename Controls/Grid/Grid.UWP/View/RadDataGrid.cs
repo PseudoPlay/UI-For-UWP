@@ -885,7 +885,10 @@ namespace Telerik.UI.Xaml.Controls.Grid
         protected override void OnTemplateApplied()
         {
             base.OnTemplateApplied();
+            this.cellFlyoutShowTimeOutAnimationBoard = new Storyboard();
+            this.cellFlyoutShowTimeOutAnimation = new DoubleAnimation();
 
+            this.cellFlyoutShowTimeOutAnimation.Duration = TimeSpan.FromSeconds(0.5);
             this.scrollViewer.ViewChanged += this.OnScrollViewerViewChanged;
             this.scrollViewer.AddHandler(ScrollViewer.KeyDownEvent, this.keyDownHandler, true);
 
@@ -921,9 +924,6 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             this.contentFlyout.Owner = this;
             this.columnReorderServicePanel.Owner = this;
-            this.cellFlyoutShowTimeOutAnimationBoard = new Storyboard();
-            this.cellFlyoutShowTimeOutAnimation = new DoubleAnimation();
-            this.cellFlyoutShowTimeOutAnimation.Duration = TimeSpan.FromSeconds(0.5);
             this.cellFlyoutShowTimeOutAnimationBoard.Children.Add(this.cellFlyoutShowTimeOutAnimation);
             Storyboard.SetTarget(this.cellFlyoutShowTimeOutAnimation, this.ContentFlyout);
             Storyboard.SetTargetProperty(this.cellFlyoutShowTimeOutAnimation, "Opacity");
