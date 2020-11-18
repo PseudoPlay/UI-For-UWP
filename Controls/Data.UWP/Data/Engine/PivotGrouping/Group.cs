@@ -330,15 +330,15 @@ namespace Telerik.Data.Core
         /// <returns>The index of the item in this group or negative number if not found.</returns>
         internal int IndexOf(object item, IComparer<object> sortComparer)
         {
-            if (sortComparer != null)
-            {
-                int index = this.itemsList.BinarySearch(item, sortComparer);
-                if (index >= 0)
-                {
-                    return this.FindItemByReference(item, sortComparer, index);
-                }
-            }
-            else
+            //if (sortComparer != null)
+            //{
+            //    int index = this.itemsList.BinarySearch(item, sortComparer);
+            //    if (index >= 0)
+            //    {
+            //        return this.FindItemByReference(item, sortComparer, index);
+            //    }
+            //}
+            //else
             {
                 return this.itemsList.IndexOf(item);
             }

@@ -7,6 +7,7 @@ using Telerik.Data.Core;
 using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Grid.Model;
 using Windows.Foundation.Collections;
+using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -341,6 +342,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return cellDecorator.DesiredSize;
         }
 
+
         private T GetCellDecorator(IItemInfoNode parentRow, ItemInfo columnItemInfo, int rowLine, int columnLine)
         {
             Dictionary<int, T> columnCellsPair;
@@ -354,9 +356,10 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             bool isFrozen = false;
 
-            if (columnItemInfo.Item is DataGridColumn)
+            var columnItem = columnItemInfo.Item as DataGridColumn;
+            if (columnItem!=null)
             {
-                isFrozen = (columnItemInfo.Item as DataGridColumn).IsFrozen;
+                isFrozen = (columnItem).IsFrozen;
             }
 
             var context = new CellGenerationContext(parentRow.ItemInfo.Item, columnItemInfo.Item, cellValue, isFrozen);
@@ -377,8 +380,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 cellDecorator.layoutSlot = RadRect.Invalid;
                 cellDecorator.DesiredSize = RadSize.Invalid;
                 cellDecorator.parent = parentRow as Element;
+                
             }
-
             if (!object.Equals(cellDecorator.Value, cellValue) || cellDecorator.Column != columnItemInfo.Item || cellDecorator.Column.ShouldRefreshCell(cellDecorator))
             {
                 cellDecorator.Value = cellValue;

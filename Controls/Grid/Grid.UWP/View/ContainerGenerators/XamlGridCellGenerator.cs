@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -68,6 +69,23 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 if (container != null)
                 {
                     container.Tag = info.IsFrozen;
+
+                    if (definition!=null)
+                    {
+                        //if (!string.IsNullOrEmpty(definition.Tip))
+                        //{
+                        //    if (!DataGridColumn.toolTips.TryGetValue(definition.Tip, out var tip))
+                        //    {
+                        //        tip = new ToolTip() { Content = definition.Tip };
+                        //        DataGridColumn.toolTips.Add(definition.Tip, tip);
+
+
+                        //    }
+                        //  //  ToolTipService.SetToolTip(container, tip);
+
+                        //}
+                    }
+
                 }
 
                 return container;
@@ -75,7 +93,6 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             return null;
         }
-
         void IUIContainerGenerator<GridCellModel, CellGenerationContext>.MakeVisible(GridCellModel node)
         {
             UIElement container = node.Container as UIElement;

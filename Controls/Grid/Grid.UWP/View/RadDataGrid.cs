@@ -857,7 +857,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.updateService.Stop();
 
             this.scrollViewer.ViewChanged -= this.OnScrollViewerViewChanged;
-            this.scrollViewer.KeyDown -= this.keyDownHandler;
+            this.scrollViewer.RemoveHandler(ScrollViewer.KeyDownEvent, this.keyDownHandler);
 
             this.UpdateLayersOnTemplateUnapplied();
 

@@ -38,6 +38,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             var header = new DataGridColumnHeader();
 
+            
+
             if (info.IsFrozen)
             {
                 // TODO: handle drag and drop

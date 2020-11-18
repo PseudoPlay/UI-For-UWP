@@ -665,9 +665,9 @@ namespace Telerik.Data.Core
 
             // TODO: We have delegate filters only and do not have the knowledge about a property for filter.
             bool isFiltered = this.FilterDescriptions.Any();
-            bool doExhaustiveSearch = isFiltered || isGrouped || isSorted;
+            bool doExhaustiveSearch = false;// isFiltered || isGrouped || isSorted;
 
-            if (isSorted || isGrouped || isAggregate || isFiltered)
+            if (false) //isSorted || isGrouped || isAggregate || isFiltered)
             {
                 // We need to do exhaustiveSearch if Filter, Group or Sort property has changed.
                 // As we don't have propertyName on FilterDescription we do search if we have any filter

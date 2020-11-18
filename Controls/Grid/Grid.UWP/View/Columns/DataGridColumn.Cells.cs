@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Telerik.Core;
@@ -139,7 +140,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             var style = this.ComposeCellDecorationStyle(cell);
             var decorationContainer = cell.DecorationContainer as FrameworkElement;
-
+            
             if (style != null)
             {
                 if (decorationContainer == null)
@@ -228,6 +229,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             return container.DesiredSize;
         }
+        public static Dictionary<string, ToolTip> toolTips = new Dictionary<string, ToolTip>();
 
         internal virtual void PrepareColumnHeaderCell(GridHeaderCellModel cell)
         {
@@ -293,6 +295,21 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     }
                 }
             }
+
+            
+                //if (!string.IsNullOrEmpty(HeaderTip))
+                //{
+                //    if (!toolTips.TryGetValue(HeaderTip, out var tip))
+                //    {
+                //        tip = new ToolTip() { Content = HeaderTip };
+                //        toolTips.Add(HeaderTip, tip);
+
+
+                //    }
+                ////    ToolTipService.SetToolTip(header as Windows.UI.Xaml.DependencyObject, tip);
+
+                //}
+            
         }
 
         internal virtual void ClearColumnHeaderCell(GridHeaderCellModel cell)
