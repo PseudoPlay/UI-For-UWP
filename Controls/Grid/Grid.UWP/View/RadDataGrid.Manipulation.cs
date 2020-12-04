@@ -26,7 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         private Storyboard cellFlyoutShowTimeOutAnimationBoard;
         private DoubleAnimation cellFlyoutShowTimeOutAnimation;
         private object itemToSelectFrom;
-
+        public Func<object,VirtualKey, bool> OnKey;
         /// <summary>
         /// Gets the <see cref="HitTestService"/> instance that provides methods for retrieving rows and cells from a given physical location.
         /// </summary>
@@ -269,7 +269,54 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 cellInfo.Column.TryFocusCell(cellInfo, FocusState.Pointer);
             }
         }
+        public void OnCellTapIgnoreNormalSelection(DataGridCellInfo cellInfo)
+        {
+            if (this.editService.IsEditing)
+            {
+                if (this.UserEditMode == DataGridUserEditMode.External)
+                {
+                    this.CancelEdit();
+                }
+                else if (!this.CommitEdit(new DataGridCellInfo(this.CurrentItem, null), ActionTrigger.Tap, null))
+                {
+                    return;
+                }
+            }
 
+            switch (this.SelectionMode)
+            {
+                case DataGridSelectionMode.Single:
+                case DataGridSelectionMode.Multiple:
+                    this.selectionService.Select(cellInfo.Cell);
+                    this.itemToSelectFrom = cellInfo;
+                    break;
+                case DataGridSelectionMode.Extended:
+                    if (KeyboardHelper.IsModifierKeyDown(VirtualKey.Shift))
+                    {
+                        var startColumnAndRow = this.GetExtendedSelectionStartRowAndColumn();
+                        this.selectionService.SelectRange(startColumnAndRow.Item1, startColumnAndRow.Item2, cellInfo.Column.ItemInfo.Slot, cellInfo.RowItemInfo.Slot);
+                    }
+                    else if (KeyboardHelper.IsModifierKeyDown(VirtualKey.Control))
+                    {
+                        this.selectionService.Select(cellInfo.Cell);
+                        this.itemToSelectFrom = cellInfo;
+                    }
+                    else
+                    {
+                        this.selectionService.ClearSelection();
+                        this.selectionService.Select(cellInfo.Cell);
+                        this.itemToSelectFrom = cellInfo;
+                    }
+                    break;
+            }
+
+            this.CurrencyService.ChangeCurrentItem(cellInfo.RowItemInfo.Item, true, true);
+
+            if (cellInfo.Column != null)
+            {
+                cellInfo.Column.TryFocusCell(cellInfo, FocusState.Pointer);
+            }
+        }
         internal void OnCellHolding(DataGridCellInfo cellInfo, HoldingState holdingState)
         {
             if (cellInfo.Column.IsCellFlyoutEnabled && holdingState == HoldingState.Started)
@@ -413,29 +460,41 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     }
                     break;
                 case VirtualKey.Enter:
-                    e.Handled = true;
-                    if (this.editService.IsEditing)
+                case VirtualKey.Space:
+                case VirtualKey.Left:
+                case VirtualKey.Right:
+                case VirtualKey.Menu:
+                    if (e.Key == VirtualKey.Enter)
                     {
+                        e.Handled = true;
+                    }
+                    if (e.Key == VirtualKey.Enter &&this.editService.IsEditing)
+                     {
                         this.CommitEdit(new DataGridCellInfo(this.CurrentItem, null), ActionTrigger.Keyboard, e.Key);
                     }
                     else
                     {
-                        bool shiftPressed = KeyboardHelper.IsModifierKeyDown(VirtualKey.Shift);
-                        info = this.model.FindPreviousOrNextDataItem(this.CurrentItem, !shiftPressed);
-                    }
-                    break;
-                case VirtualKey.Space:
-                    if (e.OriginalSource is RadDataGrid)
-                    {
-                        if (this.SelectionUnit == DataGridSelectionUnit.Row)
+                        if (e.OriginalSource is RadDataGrid)
                         {
-                            info = this.model.FindItemInfo(this.CurrentItem);
-                            if (info != null)
+                            if (this.SelectionUnit == DataGridSelectionUnit.Row)
                             {
-                                var cell = this.model.CellsController.GetCellsForRow(info.Value.Slot).First();
-                                if (cell != null)
+                                info = this.model.FindItemInfo(this.CurrentItem);
+                                if (info != null)
                                 {
-                                    this.OnCellTap(new DataGridCellInfo(cell));
+                                    var cell = this.model.CellsController.GetCellsForRow(info.Value.Slot).First();
+                                    if (cell != null)
+                                    {
+                                        if (OnKey==null || OnKey(this.CurrentItem, e.Key)==false)
+                                        {
+                                            this.commandService.ExecuteCommand(CommandId.CellTap, new DataGridCellInfo(cell));
+                                        }
+                                        else
+										{
+                                            info=null;
+
+										}
+
+                                    }
                                 }
                             }
                         }
@@ -567,7 +626,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.OnCellsPanelTapped(e);
         }
 
-        private Tuple<int, int> GetExtendedSelectionStartRowAndColumn()
+        public Tuple<int, int> GetExtendedSelectionStartRowAndColumn()
         {
             int startRow = 0;
             int startColumn = 0;

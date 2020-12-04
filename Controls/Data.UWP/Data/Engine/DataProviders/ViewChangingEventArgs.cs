@@ -8,7 +8,7 @@ using Windows.Foundation.Collections;
 
 namespace Telerik.Data.Core
 {
-    internal class ViewChangingEventArgs : EventArgs
+    public class ViewChangingEventArgs : EventArgs
     {
         public ViewChangingEventArgs(IList changedItems, CollectionChange action)
         {

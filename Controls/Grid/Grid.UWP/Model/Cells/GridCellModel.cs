@@ -4,7 +4,7 @@ using Telerik.Data.Core.Layouts;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal class GridCellModel : GridNode, IGridNode
+    public class GridCellModel : GridNode, IGridNode
     {
         internal static readonly int ValuePropertyKey = PropertyKeys.Register(typeof(GridCellModel), "Value");
 

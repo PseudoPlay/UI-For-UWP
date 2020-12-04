@@ -3,7 +3,7 @@ using Telerik.Core;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
-    internal abstract class GridNode : Node, IGridNode
+    public abstract class GridNode : Node, IGridNode
     {
         public object ContainerType
         {

@@ -43,21 +43,21 @@ namespace Telerik.UI.Xaml.Controls.Grid.Commands
                 {
                     DataGridTextColumn textColumn = column as DataGridTextColumn;
 
-                    //if (textColumn == null && column.Tip == null)
-                    //{
-                    //    return;
-                    //}
-                    //if (column.Tip != null)
-                    //{
-                    //    flyoutContent = new TextBlock() { Text = column.Tip };
+                    if (textColumn == null && column.Tip == null)
+                    {
+                        return;
+                    }
+                    if (column.Tip != null)
+                    {
+                        flyoutContent = new TextBlock() { Text = column.Tip };
 
-                    //}
-                    //else
-                    //{
-                    //    flyoutContent = column.CreateContainer(context.CellInfo.Item) as FrameworkElement;
+                    }
+                    else
+                    {
+                        flyoutContent = column.CreateContainer(context.CellInfo.Item) as FrameworkElement;
 
-                    //    column.PrepareCell(new GridCellModel() { Container = flyoutContent, ContainerType = flyoutContent.GetType(), Column = column, Value = cell.Value });
-                    //}
+                        column.PrepareCell(new GridCellModel() { Container = flyoutContent, ContainerType = flyoutContent.GetType(), Column = column, Value = cell.Value });
+                    }
                     if (textColumn != null)
                         flyoutContent.Style = textColumn.DefaultCellFlyoutContentStyle;
                     else
