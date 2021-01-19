@@ -71,10 +71,10 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             if (!this.TryRefreshData(flags))
             {
-                if ((enumFlags & UpdateFlags.AffectsScrollPosition) == UpdateFlags.AffectsScrollPosition)
-                {
-                    grid.Model.GridView.SetScrollPosition(RadPoint.Empty, false, true);
-                }
+                //if ((enumFlags & UpdateFlags.AffectsScrollPosition) == UpdateFlags.AffectsScrollPosition)
+                //{
+                //    grid.Model.GridView.SetScrollPosition(RadPoint.Empty, false, true);
+                //}
 
                 grid.Model.GridView.RebuildUI();
             }

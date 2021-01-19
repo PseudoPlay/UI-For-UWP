@@ -56,9 +56,9 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             }
         }
 
-        internal RadDataGrid Owner { get; set; }
+        public RadDataGrid Owner { get; set; }
 
-        internal void Measure()
+        public void Measure()
         {
             try
             {
@@ -146,6 +146,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// </returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
+
             // We cannot skip arrange pass else containers won't show at all.
             // TODO: Consider using Arrange method instead of Canvas.Set* methods - probably it will be faster because we have to Arrange then anyway.
             base.ArrangeOverride(finalSize);

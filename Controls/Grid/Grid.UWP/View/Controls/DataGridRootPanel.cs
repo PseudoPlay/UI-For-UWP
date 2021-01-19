@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     public sealed class DataGridRootPanel : Panel
     {
-        internal RadDataGrid Owner
+        public RadDataGrid Owner
         {
             get;
             set;
@@ -104,7 +104,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
                 double availableWidth = normalizedSize.Width;
                 double availableHeight = normalizedSize.Height;
-
+            
                 double servicePanelWidth = 0d;
                 double servicePanelHeight = 0d;
 

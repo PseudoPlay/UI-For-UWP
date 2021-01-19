@@ -241,7 +241,7 @@ namespace Telerik.Data.Core
             DateTime value;
             if (this.Value is string)
             {
-                if (DateTime.TryParse((string)this.Value, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, out value))
+                if (DateTime.TryParse((string)this.Value, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces|DateTimeStyles.AssumeUniversal, out value))
                 {
                     this.convertedValue = value;
                 }

@@ -11,7 +11,7 @@
     <AssemblyName>SDKExamples.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -923,7 +923,20 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.PersistenceChannel">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsApps">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Telerik.Core">
       <SpecificVersion>False</SpecificVersion>
@@ -932,12 +945,6 @@
     <Reference Include="Telerik.Data">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Binaries\Telerik.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Geospatial.UWP">
-      <HintPath>..\Binaries\Telerik.Geospatial.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Drawing">
-      <HintPath>..\Binaries\x86\Telerik.UI.Drawing.winmd</HintPath>
     </Reference>
     <Reference Include="Telerik.UI.Xaml.Chart.UWP">
       <SpecificVersion>False</SpecificVersion>
@@ -958,9 +965,6 @@
     <Reference Include="Telerik.UI.Xaml.Input.UWP">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Binaries\Telerik.UI.Xaml.Input.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Map.UWP">
-      <HintPath>..\Binaries\x86\Telerik.UI.Xaml.Map.UWP.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.UI.Xaml.Primitives.UWP">
       <SpecificVersion>False</SpecificVersion>

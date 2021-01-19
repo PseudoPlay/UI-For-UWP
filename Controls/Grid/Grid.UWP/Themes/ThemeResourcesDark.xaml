@@ -210,14 +210,8 @@
     <!--FilterFlyoutIcons-->
     <BitmapImage x:Key="TelerikGridFilterFlyoutHeaderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_filter_header_dark.png"/>
     <BitmapImage x:Key="TelerikGridFilterFlyoutExpanderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_arrow_down_white.png"/>
-	<Color x:Key="SystemAccentColorDark1">#674353</Color>
-	<Color x:Key="SystemAccentColorDark2">#FF7971C6</Color>
-	<Color x:Key="SystemAccentColorDark3">#FF8F88D2</Color>
-	<Color x:Key="SystemAccentColorLight1">#FF3D379E</Color>
-	<Color x:Key="SystemAccentColorLight2">#FF2E2D8F</Color>
-	<Color x:Key="SystemAccentColorLight3">#FF1F2280</Color>
-	<SolidColorBrush x:Key="TelerikGridCurrentCellBackgroundBrush" Color="#441B251B"/>
-	<SolidColorBrush x:Key="TelerikGridSelectedBackgroundBrush" Color="#33410F31"/>
-	<SolidColorBrush x:Key="TelerikGridBorderBrush" Color="{StaticResource SystemAccentColorDark1}"/>
+	<SolidColorBrush x:Key="TelerikGridCurrentCellBackgroundBrush" Color="#B41B251B"/>
+	<SolidColorBrush x:Key="TelerikGridSelectedBackgroundBrush" Color="#B3410F31"/>
+	<SolidColorBrush x:Key="TelerikGridBorderBrush" Color="#B0674353"/>
 	<SolidColorBrush x:Key="TelerikGridOverlayBackgroundBrush" Color="#DDB02323"/>
 </ResourceDictionary>

@@ -41,7 +41,31 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
             this.owner.OnSelectionChanged(radialMenuItem);
         }
-
+        static bool DeselectGroup(System.Collections.ObjectModel.ObservableCollection<RadialMenuItem> items, string group, RadialMenuItem skip)
+		{
+            var rv = false;
+            foreach (var item in items)
+            {
+                if (item.GroupName != group)
+                    continue;
+                if (item.ChildItems.Any())
+                {
+                  item.IsSelected = DeselectGroup(item.ChildItems, group, skip);
+                }
+                else
+                {
+                    if (item != skip)
+                    {
+                        item.IsSelected = false;
+                    }
+                    else
+                    {
+                        rv = item.IsSelected;
+                    }
+                }
+            }
+            return rv;
+        }
         internal void UpdateSelection(RadialMenuItem radialMenuItem)
         {
             if (!this.updatingSelection && radialMenuItem != null && !string.IsNullOrEmpty(radialMenuItem.GroupName) && radialMenuItem.IsSelected)
@@ -49,13 +73,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 this.updatingSelection = true;
 
                 var items = radialMenuItem.ParentItem == null ? this.MenuItems : radialMenuItem.ParentItem.ChildItems;
+                
+                DeselectGroup(owner.Items, radialMenuItem.GroupName, radialMenuItem);
 
-                var itemsInGroup = items.Where(c => c.GroupName == radialMenuItem.GroupName && c != radialMenuItem);
-
-                foreach (var item in itemsInGroup)
-                {
-                    item.IsSelected = false;
-                }
 
                 this.updatingSelection = false;
             }

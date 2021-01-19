@@ -4,7 +4,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 {
     internal class ScrollIntoViewOperation<T>
     {
-        internal static readonly int MaxScrollAttempts = 10;
+        internal static readonly int MaxScrollAttempts = 16;
 
         public ScrollIntoViewOperation(T item, double scrollPosition)
         {

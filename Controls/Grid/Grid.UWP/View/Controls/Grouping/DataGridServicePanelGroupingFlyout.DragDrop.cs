@@ -18,8 +18,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             var sourceVisual = sourceItem.Visual as DataGridFlyoutGroupHeader;
             var destinationVisual = destinationItem.Visual as DataGridFlyoutGroupHeader;
 
-            sourceVisual.BottomGlyphOpacity = sourceItem.LogicalIndex == childrenCount - 1 ? 0.0 : 1;
-            destinationVisual.BottomGlyphOpacity = destinationItem.LogicalIndex == childrenCount - 1 ? 0.0 : 1;
+            sourceVisual.BottomGlyphOpacity = sourceItem.LogicalIndex == childrenCount - 1 ? 0.0 : 0.75;
+            destinationVisual.BottomGlyphOpacity = destinationItem.LogicalIndex == childrenCount - 1 ? 0.0 : 0.75;
         }
         internal override void SetupDragDropProperties(IReorderItem item, int logicalIndex)
         {

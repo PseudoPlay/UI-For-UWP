@@ -120,7 +120,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         
         internal override string GetDisplayValueFormatFromCulture()
         {
-            return System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+            return System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.SortableDateTimePattern;
         }
 
         internal override string GetValueStringForNonGregorianCalendars(Windows.Globalization.Calendar calendar)

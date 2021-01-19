@@ -387,7 +387,10 @@
     </Style>
 
     <Style TargetType="local:RadDataGrid">
-        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="FontSize" Value="11"/>
+		<Setter Property="FontFamily" Value="Tw Cen MT Condensed"/>
+		
+		
 		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="Foreground" Value="{ThemeResource TelerikGridForegroundBrush}"/>
         <Setter Property="Background" Value="{ThemeResource TelerikGridBackgroundBrush}"/>
@@ -860,7 +863,7 @@
                                 <Image Source="{ThemeResource TelerikGridReorderHandle}" Height="16" Width="16" VerticalAlignment="Center"  />
                                 <ContentControl Margin="10,0,0,0" VerticalAlignment="Center" Content="{Binding DisplayContent, Mode=OneTime}"/>
                                 <TextBlock Text="{Binding SortOrder, Mode=OneTime, Converter={StaticResource SortOrderConverter}}" 
-                                            FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="10" Margin="6,0,4,2" VerticalAlignment="Center"/>
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}" FontStretch="Condensed" FontSize="10" Margin="6,0,4,2" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
                         <primitivesCommon:InlineButton Style="{StaticResource GridServiceButtonStyle}" 
@@ -1055,7 +1058,7 @@
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <ContentPresenter x:Name="headerContent" Content="{TemplateBinding Content}" Margin="8"/>
                                 <TextBlock Text="{Binding SortDirection, Mode=OneTime, Converter={StaticResource SortDirectionConverter}}"
-                                       FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="10"  Margin="2,0,4,2" VerticalAlignment="Center"/>
+                                       FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="10"  FontStretch="Condensed" Margin="2,0,4,2" VerticalAlignment="Center"/>
                             </StackPanel>
                             <primitivesCommon:InlineButton Style="{StaticResource GridServiceButtonStyle}"  x:Name="PART_FilterButton" HorizontalAlignment="Right" VerticalAlignment="Stretch"   
                                                                Grid.Column="1" Padding="8,0,8,4" VerticalContentAlignment="Center"

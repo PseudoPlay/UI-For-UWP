@@ -742,13 +742,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        public static bool ShouldExecuteOperationsSyncroniously
-        {
-            get
-            {
-                return RadControl.IsInTestMode || DesignMode.DesignModeEnabled;
-            }
-        }
+        public const bool ShouldExecuteOperationsSyncroniously = false;
 
         internal RadSize OnCellsPanelMeasure(RadSize newAvailableSize)
         {

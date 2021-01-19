@@ -195,19 +195,21 @@ namespace Telerik.UI.Xaml.Controls.Grid.Model
 
             var itemLength = this.rowLayout.RenderInfo.ValueForIndex(index);
             var offsetToScroll = this.rowLayout.RenderInfo.OffsetFromIndex(index) - itemLength;
+            // off the bottom
+            offsetToScroll -= this.View.ViewportHeight/2;
 
-            if (DoubleArithmetics.IsLessThan(operation.InitialScrollOffset + frozenContainersLength, offsetToScroll))
-            {
-                if (index > 0)
-                {
-                    offsetToScroll -= this.View.ViewportHeight;
-                    offsetToScroll += itemLength;
-                }
-            }
-            else if (DoubleArithmetics.IsLessThanOrEqual(offsetToScroll, operation.InitialScrollOffset + frozenContainersLength))
-            {
-                offsetToScroll -= frozenContainersLength;
-            }
+            /* if (DoubleArithmetics.IsLessThan(operation.InitialScrollOffset + frozenContainersLength, offsetToScroll))
+             {
+                 if (index > 0)
+                 {
+                     offsetToScroll -= this.View.ViewportHeight;
+                     offsetToScroll += itemLength+32;
+                 }
+             }
+             else if (DoubleArithmetics.IsLessThanOrEqual(offsetToScroll, operation.InitialScrollOffset + frozenContainersLength))
+             {
+                 offsetToScroll -= frozenContainersLength-32;
+             }*/
 
             var scrollPosition = new RadPoint(this.PhysicalHorizontalOffset, Math.Max(0, offsetToScroll));
 

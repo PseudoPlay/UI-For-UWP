@@ -570,7 +570,7 @@
     <!-- Start Radial Menu -->
 
     <Style TargetType="localRadialMenu:RadialMenuButton">
-        <Setter Property="Content" Value="&#xE115;"/>
+		<Setter Property="Content" Value="&#xE1D8;"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="{ThemeResource TelerikRadialMenuButtonBorderBrush}"/>
         <Setter Property="Background" Value="{ThemeResource TelerikRadialMenuButtonBackgroundBrush}"/>
@@ -595,7 +595,7 @@
                             </Border>
                             <ContentPresenter x:Name="NormalGlyph" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="{TemplateBinding FontSize}" Content="{TemplateBinding Content}" 
                                        Foreground="{TemplateBinding Foreground}" Margin="0,-1,0,0"/>
-                            <TextBlock x:Name="BackGlyph" HorizontalAlignment="Center" Margin="0,-3,0,0"  VerticalAlignment="Center" FontSize="{TemplateBinding FontSize}" Text="&#xE0C4;" 
+                            <TextBlock x:Name="BackGlyph" HorizontalAlignment="Center" Margin="0,-3,0,0"  VerticalAlignment="Center" FontSize="{TemplateBinding FontSize}" Text="&#xE11C;" 
                                        Visibility="Collapsed" Foreground="{TemplateBinding Foreground}" IsHitTestVisible="False"/>
                         </Grid>
                         <Rectangle
