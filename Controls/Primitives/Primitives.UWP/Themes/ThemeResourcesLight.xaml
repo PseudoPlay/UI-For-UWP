@@ -84,9 +84,9 @@
 
     <SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonForegroundBrush" Color="{StaticResource TelerikWhiteColor}"/>
 
-    <SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonBackgroundBrush" Color="#FF006AC1"/>
+    <SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonBackgroundBrush" Color="#80006AC1"/>
     <SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonBorderBrush" Color="{StaticResource TelerikWhiteColor}"/>
-    <SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonPointerOverBackgroundBrush" Color="#FF000000"/>
+	<SolidColorBrush x:Key="TelerikRadialMenuNavigationButtonPointerOverBackgroundBrush" Color="#80000000"/>
 
     <SolidColorBrush x:Key="TelerikRadialMenuStateItemButtonPointerOverBackgroundBrush" Color="#FF114571"/>
     <SolidColorBrush x:Key="TelerikRadialMenuStateItemButtonSelectedBackgroundBrush" Color="#FF114571"/>

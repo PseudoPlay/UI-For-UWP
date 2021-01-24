@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal static class PopupService
+    public static class PopupService
     {
         private static Popup popup;
 

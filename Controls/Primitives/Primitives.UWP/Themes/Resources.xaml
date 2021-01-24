@@ -816,6 +816,11 @@
         <Setter Property="Stroke" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}"/>
         <Setter Property="StrokeThickness" Value="0"/>
     </Style>
+	<Style TargetType="Rectangle" x:Key="ContentMenu2Style">
+		<Setter Property="Fill" Value="{ThemeResource TelerikRadialMenuContentMenuBackground2Brush}"/>
+		<Setter Property="Stroke" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}"/>
+		<Setter Property="StrokeThickness" Value="3"/>
+	</Style>
 
     <Style TargetType="Rectangle" x:Key="NavigationMenuStyle">
         <Setter Property="Fill" Value="{ThemeResource TelerikRadialMenuNavigationMenuBackgroundBrush}"/>

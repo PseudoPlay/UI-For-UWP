@@ -126,6 +126,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                         availableHeight -= servicePanelHeight;
                     }
                 }
+                //if(availableHeight > 96)
+                //    availableHeight -= 64;
 
                 this.Owner.ColumnReorderServicePanel.Measure(new Size(availableWidth, availableHeight));
 

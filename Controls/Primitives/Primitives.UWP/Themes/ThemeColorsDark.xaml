@@ -5,12 +5,12 @@
     <!--Colors-->
     <Color x:Key="TelerikWatermarkForegroundColor">#99666666</Color>
     <Color x:Key="TelerikWatermarkDisabledForegroundColor">#1FFFFFFF</Color>
-    <Color x:Key="TelerikForegroundColor">#EEF4F4F4</Color>
-    <Color x:Key="TelerikSecondaryForegroundColor">#99E0E0E0</Color>
-    <Color x:Key="TelerikSelectedColor">#911F21</Color>
+    <Color x:Key="TelerikForegroundColor">#FAF4F4F4</Color>
+    <Color x:Key="TelerikSecondaryForegroundColor">#C9A0A0FF</Color>
+    <Color x:Key="TelerikSelectedColor">#FF911F21</Color>
     <Color x:Key="TelerikHighlightedColor">#FF2086D9</Color>
     <Color x:Key="TelerikPressedBackgroundColor">#DDFFFFFF</Color>
-    <Color x:Key="TelerikPressedForegroundColor">#8A2BE2</Color>
+    <Color x:Key="TelerikPressedForegroundColor">#DD8A2BE2</Color>
     <Color x:Key="TelerikDisabledColor">#66FFFFFF</Color>
     <Color x:Key="TelerikBlackColor">#EE000000</Color>
     <Color x:Key="TelerikWhiteColor">#DDDDDDDD</Color>
@@ -24,7 +24,7 @@
     <SolidColorBrush x:Key="TelerikLoopingItemSelectedForegroundBrush" Color="{StaticResource TelerikWhiteColor}"/>
 
     <!--SelectorItem Disabled State-->
-    <SolidColorBrush x:Key="TelerikLoopingItemDisabledBackgroundBrush" Color="#66CACACA"/>
-    <SolidColorBrush x:Key="TelerikLoopingItemDisabledForegroundBrush" Color="#7C212121"/>
+    <SolidColorBrush x:Key="TelerikLoopingItemDisabledBackgroundBrush" Color="#96CACACA"/>
+    <SolidColorBrush x:Key="TelerikLoopingItemDisabledForegroundBrush" Color="#9C212121"/>
 
 </ResourceDictionary>

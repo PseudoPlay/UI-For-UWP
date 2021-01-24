@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal class RadPolarPoint
+    public class RadPolarPoint
     {
         public RadPolarPoint(double radius, double angle)
         {

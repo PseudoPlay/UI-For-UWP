@@ -40,6 +40,12 @@ namespace Telerik.UI.Xaml.Controls.Grid
             DependencyProperty.Register(nameof(SortDirection), typeof(SortDescription), typeof(DataGridColumn), new PropertyMetadata(SortDirection.None));
 
         /// <summary>
+        /// Identifies the <see cref="SortDirection"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty DefaultSortOrderProperty =
+            DependencyProperty.Register(nameof(DefaultSortOrder), typeof(SortOrder), typeof(DataGridColumn), new PropertyMetadata(SortOrder.Ascending));
+
+        /// <summary>
         /// Identifies the <see cref="HeaderStyle"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty HeaderStyleProperty =
@@ -387,6 +393,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 this.SetValue(SortDirectionProperty, value);
             }
         }
+        public SortOrder DefaultSortOrder { get; set; }
 
         /// <summary>
         /// Gets or sets the DataTemplate for the DataOperations' flyout.
@@ -673,7 +680,15 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 this.Model.SortDescriptors.Clear();
             }
-
+            var swap = DefaultSortOrder == SortOrder.Descending;
+            var sortDir = this.SortDirection;
+            if(swap)
+			{
+                if (sortDir == SortDirection.Ascending)
+                    sortDir = SortDirection.Descending;
+               else if( sortDir == SortDirection.Descending)
+                    sortDir = SortDirection.Ascending;
+            }
             if (this.currentSortDescriptor == null)
             {
                 this.currentSortDescriptor = this.GetSortDescriptor();
@@ -683,18 +698,18 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     return;
                 }
 
-                this.currentSortDescriptor.SortOrder = SortOrder.Ascending;
+                this.currentSortDescriptor.SortOrder = DefaultSortOrder;
                 this.Model.SortDescriptors.Add(this.currentSortDescriptor);
-                this.SortDirection = SortDirection.Ascending;
+                this.SortDirection = !swap ?SortDirection.Ascending: SortDirection.Descending;
             }
-            else if (this.SortDirection == SortDirection.Ascending)
+            else if (sortDir == SortDirection.Ascending)
             {
-                this.currentSortDescriptor.SortOrder = SortOrder.Descending;
+                this.currentSortDescriptor.SortOrder = swap ? SortOrder.Ascending : SortOrder.Descending;
                 if (!this.Model.SortDescriptors.Contains(this.currentSortDescriptor))
                 {
                     this.Model.SortDescriptors.Add(this.currentSortDescriptor);
                 }
-                this.SortDirection = SortDirection.Descending;
+                this.SortDirection = swap ? SortDirection.Ascending: SortDirection.Descending;
             }
             else
             {

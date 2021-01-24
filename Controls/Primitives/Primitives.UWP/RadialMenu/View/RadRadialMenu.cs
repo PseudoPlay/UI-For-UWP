@@ -56,6 +56,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// </summary>
         public static readonly DependencyProperty ContentMenuBackgroundStyleProperty =
             DependencyProperty.Register(nameof(ContentMenuBackgroundStyle), typeof(Style), typeof(RadRadialMenu), new PropertyMetadata(null, OnContentMenuStylePropertyChanged));
+        /// <summary>
+        /// Identifies the <see cref="ContentMenuBackground2Style"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ContentMenuBackground2StyleProperty =
+            DependencyProperty.Register(nameof(ContentMenuBackground2Style), typeof(Style), typeof(RadRadialMenu), new PropertyMetadata(null, OnContentMenuStylePropertyChanged));
 
         /// <summary>
         /// Identifies the <see cref="ContentMenuBackgroundStyle"/> dependency property.
@@ -70,18 +75,20 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             DependencyProperty.Register(nameof(IsOpen), typeof(bool), typeof(RadRadialMenu), new PropertyMetadata(false, OnIsOpenChanged));
 
         internal Style contentMenuBackgroundStyleCache;
+        internal Style contentMenuBackground2StyleCache;
         internal Style navigationMenuBackgroundStyleCache;
         internal double innerRadiusCache;
         internal double innerNavigationRadiusCache;
         internal double outerRadiusCache;
         internal double startAngleCache = 67.5d;
-        internal RadialMenuModel model;
-        internal HitTestService hitTestService;
+        public RadialMenuModel model;
+        public HitTestService hitTestService;
         internal VisualStateService visualstateService;
         internal RadialMenuButton menuButton;
 
         internal Popup tooltip;
         internal MenuToolTip menuToolTipContent;
+        public Action<bool> isOpenChanged;
 
         private RadialPanel panel;
         private CommandService commandService;
@@ -269,6 +276,17 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             set
             {
                 this.SetValue(ContentMenuBackgroundStyleProperty, value);
+            }
+        }
+        public Style ContentMenuBackground2Style
+        {
+            get
+            {
+                return this.contentMenuBackground2StyleCache;
+            }
+            set
+            {
+                this.SetValue(ContentMenuBackground2StyleProperty, value);
             }
         }
 
@@ -601,7 +619,10 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 this.OnPointerTapped(e.GetPosition(this));
             }
         }
-
+        protected override void OnRightTapped(Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
+        {
+            IsOpen = false; // clost on right tap
+        }
         /// <inheritdoc />
         protected override AutomationPeer OnCreateAutomationPeer()
         {
@@ -616,13 +637,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             {
                 return;
             }
-
+            
             if (menu.IsOpen)
             {
                 menu.Open();
             }
             else
             {
+                menu.visualstateService.UpdateItemHoverState(null);
                 if (menu.menuButton != null)
                 {
                     menu.menuButton.TransformToNormal();
@@ -630,6 +652,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
                 menu.Close();
             }
+            menu.isOpenChanged?.Invoke(menu.IsOpen);
 
             RadRadialMenuAutomationPeer peer = FrameworkElementAutomationPeer.FromElement(menu) as RadRadialMenuAutomationPeer;
             if (peer != null)
@@ -827,8 +850,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
             this.model.UpdateRingsRadius();
         }
-
-        private void OnMainButtonPressed(object sender, RoutedEventArgs e)
+        // called when center button is pressed, returns true to keep the menu open, false to close
+      //  public RadialMenuItem centerTarget; 
+        public void OnMainButtonPressed(object sender, RoutedEventArgs e)
         {
             if (!this.IsOpen)
             {
@@ -838,7 +862,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             {
                 if (!this.menuButton.DisplayBackContent)
                 {
-                    this.IsOpen = !this.CommandService.ExecuteCommand(CommandId.Close, null);
+                    // You reach item 8 through center
+                    if (Items.Count > 8)
+                    {
+
+                        model.NavigateToView(new NavigateContext(Items[8]));
+                    }
+                    else
+                        this.IsOpen = !this.CommandService.ExecuteCommand(CommandId.Close, null);
                 }
                 else
                 {

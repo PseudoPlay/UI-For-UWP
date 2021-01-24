@@ -345,7 +345,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        internal bool HasChildren
+        public bool HasChildren
         {
             get
             {
@@ -353,7 +353,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        internal RadialMenuModel Owner
+        public RadialMenuModel Owner
         {
             get
             {
@@ -385,16 +385,20 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             {
                 this.Command.Execute(context);
             }
+            else if(childItems.Any())
+			{
+                owner.NavigateToView(new NavigateContext(this));
+			}
         }
 
         internal void UpdateIsEnabled()
         {
-            if (this.Owner != null && this.Command != null)
-            {
-                RadialMenuItemContext context = this.GetCommandContext();
+            //if (this.Owner != null && this.Command != null)
+            //{
+            //    RadialMenuItemContext context = this.GetCommandContext();
 
-                this.IsEnabled = this.Command.CanExecute(context);
-            }
+            //    this.IsEnabled = this.Command.CanExecute(context);
+            //}
         }
 
         private static void OnContentSectorBackgroundPropertyChanged(DependencyObject target, DependencyPropertyChangedEventArgs args)

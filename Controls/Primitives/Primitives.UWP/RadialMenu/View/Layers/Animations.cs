@@ -155,7 +155,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             storyboard.Children.Add(showScaleWidthAnimation);
         }
 
-        internal static void SetStateButtonsPanelNavigateFromAnimation(Storyboard storyboard, Panel owner)
+
+		internal static void SetStateButtonsPanelNavigateFromAnimation(Storyboard storyboard, Panel owner)
         {
             DoubleAnimationUsingKeyFrames showScaleWidthAnimation = new DoubleAnimationUsingKeyFrames() { EnableDependentAnimation = RadControl.IsInTestMode };
             showScaleWidthAnimation.KeyFrames.Add(new EasingDoubleKeyFrame { KeyTime = TimeSpan.FromMilliseconds(0), Value = 1 });

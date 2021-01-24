@@ -6,7 +6,7 @@ using Windows.Foundation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal class HitTestService
+    public class HitTestService
     {
         private WeakReferenceList<IHitTestArea> registeredAreas;
         private RadRadialMenu owner;

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal partial class RadialMenuModel
+    public partial class RadialMenuModel
     {
         internal MenuViewState viewState;
         internal ActionService actionService;
@@ -53,7 +53,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             }
         }
 
-        internal RadRadialMenu Owner
+        public RadRadialMenu Owner
         {
             get
             {
@@ -123,8 +123,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             }
         }
 
-        internal void NavigateToView(NavigateContext context, bool navigateBack = false)
+        public void NavigateToView(NavigateContext context, bool navigateBack = false)
         {
+            Owner.visualstateService.UpdateItemHoverState(null);
             var targetMenuItem = context.MenuItemTarget;
 
             if (!navigateBack)

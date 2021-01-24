@@ -7,7 +7,7 @@ using Windows.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal class RadialSegment
+    public class RadialSegment
     {
         internal RadialLayoutSlot LayoutSlot { get; set; }
 

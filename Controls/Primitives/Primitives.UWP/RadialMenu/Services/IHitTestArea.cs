@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
-    internal interface IHitTestArea
+    public interface IHitTestArea
     {
         bool HitTestVisible { get; set; }
 
