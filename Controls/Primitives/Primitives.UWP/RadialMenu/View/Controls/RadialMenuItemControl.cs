@@ -32,11 +32,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
         internal RadialSegment Segment;
 
-        /// <summary>
-        /// Identifies the <see cref="Loading"/> dependency property.
-        /// </summary>
-        private static readonly DependencyProperty LoadingProperty =
-            DependencyProperty.Register(nameof(Loading), typeof(bool), typeof(RadialMenuItemControl), new PropertyMetadata(true, OnLoadingChanged));
+      
 
         private bool isPointerOver;
 
@@ -77,16 +73,20 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 this.SetValue(HeaderProperty, value);
             }
         }
-
-        internal new bool Loading
+        internal bool _loading=true;
+        internal bool _Loading
         {
             get
             {
-                return (bool)this.GetValue(LoadingProperty);
+                return _loading;
             }
             set
             {
-                this.SetValue(LoadingProperty, value);
+                if (_loading != value)
+                {
+                    _loading = value;
+                    OnLoadingChanged(this, null);
+                }
             }
         }
 
@@ -118,7 +118,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             commonVisualState = (this.Segment != null && this.IsPointerOver) ? "PointerOver" : selectionVisualState;
             commonVisualState = this.IsEnabled ? commonVisualState : base.ComposeVisualStateName();
 
-            commonVisualState = this.Loading ? "Loading" : commonVisualState;
+          //  commonVisualState = this.Loading ? "Loading" : commonVisualState;
 
             return commonVisualState;
         }
@@ -148,7 +148,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         private static void OnLoadingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as RadialMenuItemControl;
-
+            Trace($"Loading changed {control._Loading} {control.CurrentVisualState}");
             control.UpdateVisualState(true);
         }
 

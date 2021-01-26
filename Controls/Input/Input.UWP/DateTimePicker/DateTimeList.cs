@@ -174,7 +174,7 @@ namespace Telerik.UI.Xaml.Controls.Input.DateTimePickers
                 {
                     this.IsLoopingEnabled = newLoopingEnabledValue;
                 }
-                else if (this.IsLoaded)
+                else if (this.IsLoadedRad)
                 {
                     this.itemsPanel.UpdateWheelCore(this.itemsPanel.visualOffset, true);
                 }

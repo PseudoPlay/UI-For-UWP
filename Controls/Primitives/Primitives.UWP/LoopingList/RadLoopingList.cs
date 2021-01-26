@@ -1026,7 +1026,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.LoopingList
             this.itemsPanel.Owner = this;
             this.SetupPanel();
 
-            if (this.IsLoaded)
+            if (this.IsLoadedRad)
             {
                 this.OnInitialized();
             }

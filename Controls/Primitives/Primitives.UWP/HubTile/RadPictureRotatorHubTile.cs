@@ -94,7 +94,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         internal void UpdateImages()
         {
-            if (!this.IsTemplateApplied || !this.IsLoaded)
+            if (!this.IsTemplateApplied || !this.IsLoadedRad)
             {
                 return;
             }
@@ -114,7 +114,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         internal override void UpdateNextImageOnSourceChange()
         {
-            if (!this.IsTemplateApplied || !this.IsLoaded)
+            if (!this.IsTemplateApplied || !this.IsLoadedRad)
             {
                 return;
             }

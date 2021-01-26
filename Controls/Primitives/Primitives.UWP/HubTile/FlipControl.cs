@@ -165,7 +165,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
             if (!flipControl.IsInternalPropertyChange)
             {
                 flipControl.updatingIsFlipped = true;
-                flipControl.UpdateVisualState(flipControl.IsLoaded);
+                flipControl.UpdateVisualState(flipControl.IsLoadedRad);
                 flipControl.updatingIsFlipped = false;
             }
         }

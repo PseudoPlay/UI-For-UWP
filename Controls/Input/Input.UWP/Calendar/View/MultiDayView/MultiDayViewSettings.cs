@@ -572,7 +572,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             get
             {
-                if (this.owner != null && this.owner.IsLoaded && this.owner.IsTemplateApplied 
+                if (this.owner != null && this.owner.IsLoadedRad && this.owner.IsTemplateApplied 
                     && this.owner.Model.IsTreeLoaded && this.owner.DisplayMode == CalendarDisplayMode.MultiDayView)
                 {
                     return true;
@@ -1052,7 +1052,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             RadCalendar calendar = this.owner;
             if (calendar != null && calendar.IsTemplateApplied && calendar.Model.IsTreeLoaded)
             {
-                if (calendar.IsLoaded)
+                if (calendar.IsLoadedRad)
                 {
                     if (flag == MultiDayViewUpdateFlag.AffectsAppointments)
                     {

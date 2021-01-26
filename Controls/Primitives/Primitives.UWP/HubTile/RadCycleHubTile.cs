@@ -242,7 +242,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         internal void UpdateItems()
         {
-            if (!this.IsTemplateApplied || !this.IsLoaded)
+            if (!this.IsTemplateApplied || !this.IsLoadedRad)
             {
                 return;
             }

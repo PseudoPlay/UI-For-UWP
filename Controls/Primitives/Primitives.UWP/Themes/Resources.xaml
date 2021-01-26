@@ -568,7 +568,7 @@
 
 	<!-- Start Radial Menu -->
 
-	<Style TargetType="localRadialMenu:RadialMenuButton" >
+	<Style TargetType="localRadialMenu:RadialMenuButton">
 		<Setter Property="Content" Value="&#xE148;"/>
 		<Setter Property="BorderThickness" Value="2"/>
 		<Setter Property="BorderBrush" Value="{ThemeResource TelerikRadialMenuButtonBorderBrush}"/>
@@ -909,184 +909,39 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="localRadialMenu:RadialMenuItemControl">
-					<StackPanel x:Name="RootGrid"   >
+					<StackPanel x:Name="stackPanel"   >
 						<VisualStateManager.VisualStateGroups>
 							<VisualStateGroup x:Name="CommonStates">
-								<VisualStateGroup.Transitions>
-									<VisualTransition From="Loading" GeneratedDuration="0:0:0.3" To="*">
-										<Storyboard>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="5">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="12">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-
-											</DoubleAnimationUsingKeyFrames>
-											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-												<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{ThemeResource TelerikRadialMenuIconForegroundBrush}"/>
-											</ObjectAnimationUsingKeyFrames>
-										</Storyboard>
-									</VisualTransition>
-									<VisualTransition From="Loading" GeneratedDuration="0:0:0.3" To="Selected">
-										<Storyboard>
-											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-												<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuIconSelectedForegroundBrush}"/>
-											</ObjectAnimationUsingKeyFrames>
-											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderPresenter">
-												<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuHeaderSelectedForegroundBrush}"/>
-											</ObjectAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="5">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="10">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-											</DoubleAnimationUsingKeyFrames>
-										</Storyboard>
-									</VisualTransition>
-									<VisualTransition From="Loading" GeneratedDuration="0:0:0.3" To="Disabled">
-										<Storyboard>
-											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-												<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialDisabledMenuButtonForegroundBrush}"/>
-											</ObjectAnimationUsingKeyFrames>
-											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderPresenter">
-												<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialDisabledMenuButtonForegroundBrush}"/>
-											</ObjectAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="HeaderPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="5">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-											</DoubleAnimationUsingKeyFrames>
-											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="IconPresenter">
-												<EasingDoubleKeyFrame KeyTime="0" Value="10">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-												<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-													<EasingDoubleKeyFrame.EasingFunction>
-														<ExponentialEase EasingMode="EaseIn"/>
-													</EasingDoubleKeyFrame.EasingFunction>
-												</EasingDoubleKeyFrame>
-											</DoubleAnimationUsingKeyFrames>
-										</Storyboard>
-									</VisualTransition>
-								</VisualStateGroup.Transitions>
 								<VisualState x:Name="Normal">
 									<VisualState.Setters>
-										<Setter Target="RootGrid.(RevealBrush.State)" Value="Normal" />
-										<Setter Target="RootGrid.Background" Value="Transparent" />
-										<Setter Target="RootGrid.BorderBrush" Value="Transparent" />
-										<Setter Target="RootGrid.BorderThickness" Value="0" />
+										<Setter Target="stackPanel.(RevealBrush.State)" Value="Normal" />
+										<Setter Target="stackPanel.Background" Value="Transparent" />
+										<Setter Target="stackPanel.BorderBrush" Value="Transparent" />
+										<Setter Target="stackPanel.BorderThickness" Value="0" />
+										<Setter Target="IconPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuIconForegroundBrush}" />
+										<Setter Target="HeaderPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuHeaderForegroundBrush}" />
 
 									</VisualState.Setters>
 								</VisualState>
 								<VisualState x:Name="PointerOver">
 									<VisualState.Setters>
-										<Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
-										<Setter Target="RootGrid.Background" Value="{ThemeResource TelerikRadialMenuContentMenuBackground2Brush}" />
-										<Setter Target="RootGrid.BorderBrush" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}" />
-										<Setter Target="RootGrid.BorderThickness" Value="2" />
-
+										<Setter Target="stackPanel.(RevealBrush.State)" Value="PointerOver" />
+										<Setter Target="stackPanel.Background" Value="{ThemeResource TelerikRadialMenuContentMenuBackground2Brush}" />
+										<Setter Target="stackPanel.BorderBrush" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}" />
+										<Setter Target="stackPanel.BorderThickness" Value="2" />
+										<Setter Target="IconPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuIconPointerOverForegroundBrush}" />
+										<Setter Target="HeaderPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuHeaderPointerOverForegroundBrush}" />
+									</VisualState.Setters>
+								</VisualState>
+								
+								<VisualState x:Name="Selected">
+									<VisualState.Setters>
+										<Setter Target="stackPanel.(RevealBrush.State)" Value="Pressed" />
+										<Setter Target="stackPanel.Background" Value="{ThemeResource TelerikRadialMenuContentMenuBackgroundBrush }" />
+										<Setter Target="stackPanel.BorderBrush" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}" />
+										<Setter Target="stackPanel.BorderThickness" Value="2" />
 
 									</VisualState.Setters>
-									<Storyboard>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuIconPointerOverForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuHeaderPointerOverForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-									</Storyboard>
-								</VisualState>
-								<VisualState x:Name="Loading">
-									<Storyboard>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuIconForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HeaderPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="10"/>
-										</ObjectAnimationUsingKeyFrames>
-									</Storyboard>
-								</VisualState>
-								<VisualState x:Name="Selected">
-									<!--<VisualState.Setters>
-										<Setter Target="RootGrid.(RevealBrush.State)" Value="Pressed" />
-										<Setter Target="RootGrid.Background" Value="{ThemeResource TelerikRadialMenuContentMenuBackground2Brush }" />
-
-									</VisualState.Setters>-->
 									<Storyboard>
 										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
 											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuIconSelectedForegroundBrush}"/>
@@ -1109,14 +964,10 @@
 							</VisualStateGroup>
 						</VisualStateManager.VisualStateGroups>
 						<ContentPresenter VerticalAlignment="Bottom" Foreground="{ThemeResource TelerikRadialMenuIconForegroundBrush}" UseLayoutRounding="True" x:Name="IconPresenter" FontFamily="Segoe UI Symbol" FontSize="20" HorizontalAlignment="Center" Content="{TemplateBinding IconContent}">
-							<ContentPresenter.RenderTransform>
-								<CompositeTransform/>
-							</ContentPresenter.RenderTransform>
+							
 						</ContentPresenter>
 						<ContentPresenter VerticalAlignment="Bottom" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" x:Name="HeaderPresenter" HorizontalAlignment="Center" Content="{TemplateBinding Header}" MaxWidth="64" TextWrapping="WrapWholeWords" >
-							<ContentPresenter.RenderTransform>
-								<CompositeTransform/>
-							</ContentPresenter.RenderTransform>
+							
 						</ContentPresenter>
 					</StackPanel>
 				</ControlTemplate>

@@ -213,7 +213,7 @@ namespace Telerik.UI.Xaml.Controls.Data
                 context.AssociatedItem.scheduledForBatchAnimation = false;
             }
 
-            if (this.scheduledAddAnimations.Count == 0 && !this.IsLoaded)
+            if (this.scheduledAddAnimations.Count == 0 && !this.IsLoadedRad)
             {
                 this.itemAddedAnimationCache.Ended -= this.OnItemAddedAnimation_Ended;
             }
@@ -267,7 +267,7 @@ namespace Telerik.UI.Xaml.Controls.Data
                 this.virtualizationStrategy.RecalculateViewportMeasurements();
             }
 
-            if (this.scheduledRemoveAnimations.Count == 0 && !this.IsLoaded)
+            if (this.scheduledRemoveAnimations.Count == 0 && !this.IsLoadedRad)
             {
                 this.itemRemovedAnimationCache.Ended -= this.OnItemRemovedAnimation_Ended;
             }
@@ -277,7 +277,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         internal virtual bool CanPlayAnimationForItem(RadVirtualizingDataControlItem item, bool adding)
         {
-            return this.IsLoaded || (adding && this.itemAddedBatchAnimationScheduled);
+            return this.IsLoadedRad || (adding && this.itemAddedBatchAnimationScheduled);
         }
 
         internal void PlaySingleItemAddedAnimation(RadVirtualizingDataControlItem item)

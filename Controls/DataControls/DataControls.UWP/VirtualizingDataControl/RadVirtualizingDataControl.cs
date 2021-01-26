@@ -511,7 +511,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         /// </summary>
         internal virtual bool IsOperational()
         {
-            return this.IsLoaded && this.virtualizationStrategy != null && this.itemsPanel != null && this.GetItemCount() > 0;
+            return this.IsLoadedRad && this.virtualizationStrategy != null && this.itemsPanel != null && this.GetItemCount() > 0;
         }
 
         internal virtual void OnSizeChanged(object sender, SizeChangedEventArgs e)
@@ -642,7 +642,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             if (this.virtualizationStrategy != null)
             {
-                if (this.IsLoaded)
+                if (this.IsLoadedRad)
                 {
                     this.ManageViewport();
                 }
@@ -732,7 +732,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.virtualizationStrategy = this.virtualizationStrategyDefinition.CreateStrategy();
             this.virtualizationStrategy.InitializeOwner(this);
 
-            if (this.IsLoaded)
+            if (this.IsLoadedRad)
             {
                 this.UpdateStrategyDefinitionPropertyChangedHandling(true);
             }
@@ -773,7 +773,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         private void OnVirtualizationStrategyDefinitionPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (this.IsLoaded)
+            if (this.IsLoadedRad)
             {
                 this.virtualizationStrategyDefinition.SynchStrategyProperties(this.virtualizationStrategy);
             }

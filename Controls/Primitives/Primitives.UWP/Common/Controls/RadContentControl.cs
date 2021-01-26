@@ -48,7 +48,7 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the control is currently loaded.
         /// </summary>
-        public bool IsLoaded
+        public bool IsLoadedRad
         {
             get
             {
@@ -254,7 +254,7 @@ namespace Telerik.UI.Xaml.Controls
 
         private void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            this.UpdateVisualState(this.IsLoaded);
+            this.UpdateVisualState(this.IsLoadedRad);
         }
     }
 }

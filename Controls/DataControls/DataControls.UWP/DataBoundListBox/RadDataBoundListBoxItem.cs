@@ -46,7 +46,7 @@ namespace Telerik.UI.Xaml.Controls.Data
                 if (this.isSelected != value)
                 {
                     this.isSelected = value;
-                    this.UpdateVisualState(this.IsLoaded);
+                    this.UpdateVisualState(this.IsLoadedRad);
                 }
             }
         }

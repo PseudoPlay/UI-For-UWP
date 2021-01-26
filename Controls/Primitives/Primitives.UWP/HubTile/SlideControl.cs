@@ -150,7 +150,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
             {
                 slide.updatingExpandedState = true;
 
-                slide.UpdateVisualState(slide.IsLoaded);
+                slide.UpdateVisualState(slide.IsLoadedRad);
 
                 slide.updatingExpandedState = false;
 

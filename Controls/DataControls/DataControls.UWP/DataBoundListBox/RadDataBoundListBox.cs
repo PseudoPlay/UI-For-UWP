@@ -1200,7 +1200,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             // animation triggers the positioning of the PTR when its actual size is empty.
             // This causes wrong positioning. We need to therefore repositiong it correctly here
             // upon intiial layout before the Loaded event comes again.
-            if (this.isPullToRefreshEnabledCache && !this.IsLoaded)
+            if (this.isPullToRefreshEnabledCache && !this.IsLoadedRad)
             {
                 if (this.IsProperlyTemplated && (this.realizedItems.Count > 0 || this.ShowPullToRefreshWhenNoData))
                 {

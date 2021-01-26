@@ -59,7 +59,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             this.TranslateRemoveAnimatedItemsWithOffset(startingOffset, -offset);
 
-            if (this.owner.IsLoaded)
+            if (this.owner.IsLoadedRad)
             {
                 this.ManageLowerViewport(false);
                 this.CheckBottomScrollableBounds();

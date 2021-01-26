@@ -644,7 +644,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
             else
             {
-                menu.visualstateService.UpdateItemHoverState(null);
+               
                 if (menu.menuButton != null)
                 {
                     menu.menuButton.TransformToNormal();
@@ -652,7 +652,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
                 menu.Close();
             }
-            menu.isOpenChanged?.Invoke(menu.IsOpen);
+           
 
             RadRadialMenuAutomationPeer peer = FrameworkElementAutomationPeer.FromElement(menu) as RadRadialMenuAutomationPeer;
             if (peer != null)
@@ -663,6 +663,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                     peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
                 }
             }
+            menu.isOpenChanged?.Invoke(menu.IsOpen);
         }
 
         private static void OnInnerNavigationRadiusFactorPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

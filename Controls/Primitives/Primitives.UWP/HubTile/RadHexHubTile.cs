@@ -129,7 +129,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             if (!this.IsInternalPropertyChange)
             {
                 this.updatingIsFlipped = true;
-                this.UpdateVisualState(this.IsLoaded);
+                this.UpdateVisualState(this.IsLoadedRad);
                 this.updatingIsFlipped = false;
             }
         }

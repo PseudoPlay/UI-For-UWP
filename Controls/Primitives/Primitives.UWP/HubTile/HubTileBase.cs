@@ -288,7 +288,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                     return false;
                 }
 
-                if (!this.IsLoaded && !this.IsLoading)
+                if (!this.IsLoadedRad && !this.IsLoading)
                 {
                     return false;
                 }
@@ -489,7 +489,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         protected virtual void OnBackStateActivated()
         {
             this.ResetTimer();
-            this.UpdateVisualState(this.IsLoaded);
+            this.UpdateVisualState(this.IsLoadedRad);
         }
 
         /// <summary>
@@ -498,7 +498,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         protected virtual void OnBackStateDeactivated()
         {
             this.ResetTimer();
-            this.UpdateVisualState(this.IsLoaded);
+            this.UpdateVisualState(this.IsLoadedRad);
         }
 
         /// <summary>
@@ -561,12 +561,12 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         private void OnUpdateTimerTick(object sender, object args)
         {
-            if (!this.IsLoaded || !this.IsTemplateApplied)
+            if (!this.IsLoadedRad || !this.IsTemplateApplied)
             {
                 return;
             }
 
-            this.Update(this.IsLoaded, true);
+            this.Update(this.IsLoadedRad, true);
         }
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)

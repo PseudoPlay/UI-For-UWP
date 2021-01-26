@@ -145,7 +145,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
                         if (menuVisual != null)
                         {
-                            menuVisual.Loading = false;
+                            menuVisual._Loading = false;
                         }
                     }
                 });
@@ -203,7 +203,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
                     if (menuVisual != null)
                     {
-                        menuVisual.Loading = false;
+                        menuVisual._Loading = false;
                     }
                 }
 

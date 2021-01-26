@@ -2110,7 +2110,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         internal void UpdatePresenters(IEnumerable<CalendarCellModel> cellsToUpdate)
         {
-            if (!this.IsLoaded || !this.IsTemplateApplied)
+            if (!this.IsLoadedRad || !this.IsTemplateApplied)
             {
                 return;
             }
@@ -2659,7 +2659,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
             calendar.InitializeDefaultCellStyles((CalendarDisplayMode)args.OldValue);
 
-            if (calendar.IsLoaded)
+            if (calendar.IsLoadedRad)
             {
                 calendar.ToggleDisplayModeViews((CalendarDisplayMode)args.NewValue, (CalendarDisplayMode)args.OldValue);
             }
@@ -3165,7 +3165,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void UpdateAppointmentsVisualization()
         {
-            if (this.IsLoaded && this.IsTemplateApplied && this.model.IsTreeLoaded)
+            if (this.IsLoadedRad && this.IsTemplateApplied && this.model.IsTreeLoaded)
             {
                 if (this.displayModeCache != CalendarDisplayMode.MultiDayView)
                 {
@@ -3282,7 +3282,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void OnInvalidated()
         {
-            if (!this.IsLoaded || !this.IsTemplateApplied)
+            if (!this.IsLoadedRad || !this.IsTemplateApplied)
             {
                 this.invalidateScheduled = false;
                 return;
@@ -3353,7 +3353,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void OnPresentersInvalidated()
         {
-            if (this.invalidateScheduled || !this.IsLoaded || !this.IsTemplateApplied)
+            if (this.invalidateScheduled || !this.IsLoadedRad || !this.IsTemplateApplied)
             {
                 this.invalidatePresentersScheduled = false;
                 return;

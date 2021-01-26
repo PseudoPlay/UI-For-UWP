@@ -26,7 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             get
             {
-                return base.IsOperational && this.Owner.IsLoaded && this.suspendedCount == 0;
+                return base.IsOperational && this.Owner.IsLoadedRad && this.suspendedCount == 0;
             }
         }
 

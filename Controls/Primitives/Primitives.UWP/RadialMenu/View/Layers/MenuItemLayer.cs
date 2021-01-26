@@ -166,6 +166,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 if (this.recycledMenuItemControls.Count > 0)
                 {
                     menuItemControl = this.recycledMenuItemControls.Dequeue();
+                    menuItemControl._loading = true;
                 }
                 else
                 {
@@ -191,7 +192,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 var element = segment.Visual as RadialMenuItemControl;
                 if (element != null)
                 {
-                   // this.recycledMenuItemControls.Enqueue(element);
+                    this.recycledMenuItemControls.Enqueue(element);
                     this.ContentItemsPanel.Children.Remove(element);
                 }
 

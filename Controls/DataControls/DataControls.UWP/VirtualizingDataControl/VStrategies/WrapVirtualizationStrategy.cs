@@ -61,7 +61,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             this.ReorderViewportItemsOnItemRemoved(context.RealizedIndex, context.AssociatedItem);
 
-            if (this.owner.IsLoaded)
+            if (this.owner.IsLoadedRad)
             {
                 this.ManageLowerViewport(false);
                 this.CheckBottomScrollableBounds();
