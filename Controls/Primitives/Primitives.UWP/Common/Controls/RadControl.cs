@@ -29,6 +29,17 @@ namespace Telerik.UI.Xaml.Controls
         private byte visualStateUpdateLock;
         private string currentVisualState = string.Empty;
 
+
+            [Conditional("TRACE")]
+        public static void Trace(string s,
+        [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+        [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
+        [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
+
+        {
+            System.Diagnostics.Trace.WriteLine($"{sourceFilePath}({sourceLineNumber}): {memberName} : Trace: {s}");
+            System.Diagnostics.Trace.WriteLine( (new StackTrace(1, true)).ToString() );
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="RadControl"/> class.
         /// </summary>

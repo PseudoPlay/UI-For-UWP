@@ -149,6 +149,12 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
                     this.ArrangeMenuItemControl(segment);
                 }
+                else
+				{
+                    if(segment.Visual!=null)
+                    RadControl.Trace($"Null {segment.Visual.GetType()}");
+
+                }
             }
         }
 
@@ -167,7 +173,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 }
 
                 this.ContentItemsPanel.Children.Add(menuItemControl);
-
+               
                 menuItemControl.IconContent = segmentModel.TargetItem.IconContent;
                 menuItemControl.Header = segmentModel.TargetItem.Header;
                 menuItemControl.Segment = segmentModel;
@@ -185,7 +191,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
                 var element = segment.Visual as RadialMenuItemControl;
                 if (element != null)
                 {
-                    this.recycledMenuItemControls.Enqueue(element);
+                   // this.recycledMenuItemControls.Enqueue(element);
                     this.ContentItemsPanel.Children.Remove(element);
                 }
 
@@ -227,13 +233,22 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             var tranformedCenterPoint = new Point(centerPoint.X + this.Model.OuterRadius, this.Model.OuterRadius - centerPoint.Y);
 
             var element = segmentModel.Visual as RadialMenuItemControl;
-            element.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            if (element == null)
+            {
+                if(segmentModel.Visual!=null)
+                    RadControl.Trace($"Null {segmentModel.Visual.GetType()}");
+            }
+            else
+            {
+                //element.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                //RadControl.Trace($"Desired Size {element.DesiredSize}");
+                Size DesiredSize = new Size(64, 96);
+                var arrangeSlot = new Rect(tranformedCenterPoint.X - DesiredSize.Width / 2.0, tranformedCenterPoint.Y - DesiredSize.Height / 2.0, DesiredSize.Width, DesiredSize.Height);
 
-            var arrangeSlot = new Rect(tranformedCenterPoint.X - element.DesiredSize.Width / 2.0, tranformedCenterPoint.Y - element.DesiredSize.Height / 2.0, element.DesiredSize.Width, element.DesiredSize.Height);
-
-            element.Arrange(arrangeSlot);
-            Canvas.SetLeft(element, arrangeSlot.X);
-            Canvas.SetTop(element, arrangeSlot.Y);
+                Canvas.SetLeft(element, arrangeSlot.X);
+                Canvas.SetTop(element, arrangeSlot.Y);
+                element.Arrange(arrangeSlot);
+            }
         }
 
         private void InitializeNavigateFromAnimation()

@@ -60,7 +60,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Identifies the <see cref="ContentMenuBackground2Style"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentMenuBackground2StyleProperty =
-            DependencyProperty.Register(nameof(ContentMenuBackground2Style), typeof(Style), typeof(RadRadialMenu), new PropertyMetadata(null, OnContentMenuStylePropertyChanged));
+            DependencyProperty.Register(nameof(ContentMenuBackground2Style), typeof(Style), typeof(RadRadialMenu), new PropertyMetadata(null, OnContentMenu2StylePropertyChanged));
 
         /// <summary>
         /// Identifies the <see cref="ContentMenuBackgroundStyle"/> dependency property.
@@ -773,6 +773,16 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         {
             RadRadialMenu radialMenu = (RadRadialMenu)target;
             radialMenu.contentMenuBackgroundStyleCache = args.NewValue as Style;
+
+            if (radialMenu.IsTemplateApplied)
+            {
+                radialMenu.model.UpdateRingsVisualPanel();
+            }
+        }
+        private static void OnContentMenu2StylePropertyChanged(DependencyObject target, DependencyPropertyChangedEventArgs args)
+        {
+            RadRadialMenu radialMenu = (RadRadialMenu)target;
+            radialMenu.contentMenuBackground2StyleCache = args.NewValue as Style;
 
             if (radialMenu.IsTemplateApplied)
             {

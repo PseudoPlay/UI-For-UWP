@@ -53,14 +53,14 @@
     <SolidColorBrush x:Key="TelerikRangeSliderPrimitiveTrackPointerOverBackgroundBrush" Color="#60FFFFFF"/>
     <SolidColorBrush x:Key="TelerikRangeSliderPrimitiveTrackPressedBackgroundBrush" Color="#7AFFFFFF"/>
 
-    <SolidColorBrush x:Key="TelerikRangeToolTipBorderBrush" Color="#FF808080"/>
+	<SolidColorBrush x:Key="TelerikRangeToolTipBorderBrush" Color="#FF000040"/>
     <SolidColorBrush x:Key="TelerikRangeToolTipRangeForegroundBrush" Color="Gray"/>
     <SolidColorBrush x:Key="TelerikRangeToolTipForegroundBrush" Color="{StaticResource TelerikBlackColor}"/>
     <SolidColorBrush x:Key="TelerikRangeToolTipBackgroundBrush" Color="{StaticResource TelerikWhiteColor}"/>
 
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuButtonBackgroundBrush" TargetTheme="Dark" Color="#FF000000"/>
     <SolidColorBrush x:Key="TelerikRadialMenuButtonForegroundBrush" Color="#FFFFFFFF"/>
-	<RevealBorderBrush  x:Key="TelerikRadialMenuButtonBorderBrush" TargetTheme="Dark" Color="#FF332588"/>
+	<RevealBorderBrush  x:Key="TelerikRadialMenuButtonBorderBrush" TargetTheme="Dark" Color="#FF231548"/>
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuButtonPointerOverBackgroundBrush" TargetTheme="Dark"  Color="#FFAAAAAA"/>
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuButtonPressedBackgroundBrush" TargetTheme="Dark"  Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="TelerikRadialMenuButtonPressedForegroundBrush" Color="#FF000000"/>
@@ -69,8 +69,8 @@
     <SolidColorBrush x:Key="TelerikRadialDisabledMenuButtonForegroundBrush" Color="#FF8C8C8C"/>
 
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuContentMenuBackgroundBrush" TargetTheme="Dark"  Color="#E0400000"/>
-	<RevealBackgroundBrush  x:Key="TelerikRadialMenuContentMenuBackground2Brush" TargetTheme="Dark"  Color="#E0004000"/>
-	<RevealBorderBrush x:Key="TelerikRadialMenuContentMenuBorderBrush" TargetTheme="Dark" Color="#FF332588"/>
+	<RevealBackgroundBrush  x:Key="TelerikRadialMenuContentMenuBackground2Brush" TargetTheme="Dark"  Color="#F0202040"/>
+	<RevealBorderBrush x:Key="TelerikRadialMenuContentMenuBorderBrush" TargetTheme="Dark" Color="#FF030528"/>
 
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuNavigationMenuBackgroundBrush" TargetTheme="Dark"  Color="#80442424"/>
 	<RevealBorderBrush x:Key="TelerikRadialMenuNavigationMenuBorderBrush" TargetTheme="Dark"  Color="{StaticResource TelerikBlackColor}"/>
@@ -93,9 +93,9 @@
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuStateItemButtonSelectedBackgroundBrush" TargetTheme="Dark" Color="#D0114571"/>
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuStateItemButtonSelectedPointerOverBackgroundBrush" TargetTheme="Dark" Color="#FF285EAF"/>
 
-    <SolidColorBrush x:Key="TelerikRadialMenuToolTipForegroundBrush" Color="#FF808080"/>
-	<RevealBackgroundBrush  x:Key="TelerikRadialMenuToolTipBackgroundBrush" TargetTheme="Dark" Color="{StaticResource TelerikWhiteColor}"/>
-	<RevealBorderBrush x:Key="TelerikRadialMenuToolTipBorderBrush" TargetTheme="Dark" Color="#FF808080"/>
+    <SolidColorBrush x:Key="TelerikRadialMenuToolTipForegroundBrush" Color="#FFF0F0F0"/>
+	<SolidColorBrush  x:Key="TelerikRadialMenuToolTipBackgroundBrush" Color="#FF000040"/>
+	<SolidColorBrush x:Key="TelerikRadialMenuToolTipBorderBrush" Color="#FF000040"/>
 
     <SolidColorBrush x:Key="TelerikBusyIndicatorForegroundBrush" Color="{StaticResource TelerikSelectedColor}"/>
 
