@@ -314,7 +314,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
+    <OutputPath>C:\Source\COTG\ext\</OutputPath>
     <DefineConstants>CODE_ANALYSIS;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <DocumentationFile>bin\Release\\Telerik.Data.XML</DocumentationFile>
     <Optimize>true</Optimize>

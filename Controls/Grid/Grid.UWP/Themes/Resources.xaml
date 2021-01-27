@@ -32,7 +32,7 @@
     <core:BoolToVisibilityConverter x:Key="VisibilityConverter" />
     <localView:DataOperationsButtonTextConverter x:Key="DataOperationsButtonTextConverter" />
     <localView:BorderThicknessToMarginConverter x:Key="BorderThicknessToMarginConverter" />
-    <localView:DataOperationsButtonOpacityConverter x:Key="DataOperationsButtonOpacityConverter" />
+    <!--<localView:DataOperationsButtonOpacityConverter x:Key="DataOperationsButtonOpacityConverter" />-->
 
     <Style TargetType="localPrimitives:DataGridFilteringFlyoutExpandButton">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -198,17 +198,17 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,0,9" IconText="&#xE71C;"
-                                                                                  Opacity="{Binding CanFilter, Mode=OneTime, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
+                                                                                  
                                                                                   local:GridLocalizationManager.Key="DataOperationsButtonFilter"
                                                                                   local:GridLocalizationManager.PropertyName="Content"
                                                                                   Command="{Binding Command, Mode=OneTime}" CommandParameter="Filter" />
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,0,9" IconText="&#xE8CB;"
-                                                                                  Opacity="{Binding CanSort, Mode=OneTime, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
+                                                                                  
                                                                                   local:GridLocalizationManager.Key="DataOperationsButtonSort"
                                                                                   local:GridLocalizationManager.PropertyName="Content" 
                                                                                   Command="{Binding Command, Mode=OneTime}" CommandParameter="Sort" Grid.Column="1" />
                                 <localPrimitives:ColumnHeaderDataOperationsButton Padding="0,7,0,7" Margin="20,9,20,9" IconText="&#xE8C4;"
-                                                                                  Opacity="{Binding CanGroup, Converter={StaticResource DataOperationsButtonOpacityConverter}}"
+                                                                                  
                                                                                   Content="{Binding Command.IsGrouped, Mode=OneTime, Converter={StaticResource DataOperationsButtonTextConverter}}"
                                                                                   Command="{Binding Command, Mode=OneTime}" CommandParameter="Group" Grid.Column="2" />
                             </Grid>

@@ -937,29 +937,22 @@
 								<VisualState x:Name="Selected">
 									<VisualState.Setters>
 										<Setter Target="stackPanel.(RevealBrush.State)" Value="Pressed" />
-										<Setter Target="stackPanel.Background" Value="{ThemeResource TelerikRadialMenuContentMenuBackgroundBrush }" />
-										<Setter Target="stackPanel.BorderBrush" Value="{ThemeResource TelerikRadialMenuContentMenuBorderBrush}" />
+										<Setter Target="stackPanel.Background" Value="Transparent" />
+										<Setter Target="stackPanel.BorderBrush" Value="Transparent" />
 										<Setter Target="stackPanel.BorderThickness" Value="2" />
-
+										<Setter Target="IconPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuIconSelectedForegroundBrush}" />
+										<Setter Target="HeaderPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuHeaderSelectedForegroundBrush}" />
 									</VisualState.Setters>
-									<Storyboard>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuIconSelectedForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialMenuHeaderSelectedForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-									</Storyboard>
 								</VisualState>
 								<VisualState x:Name="Disabled">
-									<Storyboard>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IconPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialDisabledMenuButtonForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderPresenter">
-											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRadialDisabledMenuButtonForegroundBrush}"/>
-										</ObjectAnimationUsingKeyFrames>
-									</Storyboard>
+									<VisualState.Setters>
+										<Setter Target="stackPanel.(RevealBrush.State)" Value="Pressed" />
+										<Setter Target="stackPanel.Background" Value="Transparent" />
+										<Setter Target="stackPanel.BorderBrush" Value="Transparent" />
+										<Setter Target="stackPanel.BorderThickness" Value="2" />
+										<Setter Target="IconPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuIconDisabledForegroundBrush}" />
+										<Setter Target="HeaderPresenter.Foreground" Value="{ThemeResource TelerikRadialMenuHeaderDisabledForegroundBrush}" />
+									</VisualState.Setters>
 								</VisualState>
 							</VisualStateGroup>
 						</VisualStateManager.VisualStateGroups>

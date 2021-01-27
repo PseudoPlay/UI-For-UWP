@@ -68,7 +68,7 @@
 	<RevealBackgroundBrush  x:Key="TelerikRadialDisabledMenuButtonBackgroundBrush" TargetTheme="Dark"  Color="#FF888888"/>
     <SolidColorBrush x:Key="TelerikRadialDisabledMenuButtonForegroundBrush" Color="#FF8C8C8C"/>
 
-	<RevealBackgroundBrush  x:Key="TelerikRadialMenuContentMenuBackgroundBrush" TargetTheme="Dark"  Color="#E0400000"/>
+	<SolidColorBrush  x:Key="TelerikRadialMenuContentMenuBackgroundBrush"  Color="#E0400000"/>
 	<RevealBackgroundBrush  x:Key="TelerikRadialMenuContentMenuBackground2Brush" TargetTheme="Dark"  Color="#F0202040"/>
 	<RevealBorderBrush x:Key="TelerikRadialMenuContentMenuBorderBrush" TargetTheme="Dark" Color="#FF030528"/>
 
